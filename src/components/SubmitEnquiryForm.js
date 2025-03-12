@@ -3,6 +3,9 @@
 import { useState } from "react";
 import SubmitButton from "./SubmitButton";
 
+const btnStyle =
+  "bg-primary-400 px-4 py-4 text-primary-50 font-semibold uppercase hover:bg-accent-950 transition-all rounded-sm disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300";
+
 function SubmitEnquiryForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -13,30 +16,23 @@ function SubmitEnquiryForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // console.log(`Field changed: ${name}, New Value: ${value}`);
-
-    setFormData((prevData) => {
-      const updatedData = { ...prevData, [name]: value };
-      // console.log("Updated Form Data:", updatedData);
-
-      return updatedData;
-    });
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   return (
     <form
       action=""
-      className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+      className="bg-primary-900 w-full max-w-full py-6 px-6 text-lg flex flex-col gap-4 mx-auto"
     >
-      <div className="flex flex-col min-[840px]:flex-row gap-4 w-full max-w-full">
+      {/* Name & Email Fields */}
+      <div className="flex flex-col min-[840px]:flex-row gap-4 w-full">
         <input
           type="text"
           name="name"
           placeholder="Name"
           value={formData.name}
           onChange={handleChange}
-          className="px-5 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+          className="px-4 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm"
           required
         />
 
@@ -46,38 +42,38 @@ function SubmitEnquiryForm() {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          className="px-5 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+          className="px-4 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm"
           required
         />
       </div>
 
-      <div>
-        <input
-          type="text"
-          name="subject"
-          placeholder="Subject"
-          value={formData.subject}
-          onChange={handleChange}
-          className="px-5 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
-          required
-        />
-      </div>
+      {/* Subject Field */}
+      <input
+        type="text"
+        name="subject"
+        placeholder="Subject"
+        value={formData.subject}
+        onChange={handleChange}
+        className="px-4 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm"
+        required
+      />
 
-      <div>
-        <textarea
-          rows="4"
-          cols="50"
-          name="message"
-          placeholder="Type your message here..."
-          value={formData.message}
-          onChange={handleChange}
-          className="px-5 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
-          required
-        />
-      </div>
+      {/* Message Field */}
+      <textarea
+        rows="4"
+        name="message"
+        placeholder="Type your message here..."
+        value={formData.message}
+        onChange={handleChange}
+        className="px-4 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm"
+        required
+      />
 
-      <div className="flex justify-end items-center gap-6">
-        <SubmitButton pendingLabel="Sending...">Send Message</SubmitButton>
+      {/* Submit Button */}
+      <div className="flex justify-center min-[601px]:justify-end">
+        <SubmitButton btnStyle={btnStyle} pendingLabel="Sending...">
+          Send Message
+        </SubmitButton>
       </div>
     </form>
   );
