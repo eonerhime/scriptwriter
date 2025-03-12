@@ -1,3 +1,4 @@
+
 import profileImage from "@/assets/ifeoma.png";
 import AboutContent from "@/components/AboutContent";
 
