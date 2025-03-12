@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
+  /* Base Colour */
   --color-navy-500: #010036;
 
+  /* Primary Colours */
   --color-primary-50: #e6e6f2;
   --color-primary-100: #cccce6;
   --color-primary-200: #9999cc;
@@ -15,6 +17,7 @@
   --color-primary-900: #01001a;
   --color-primary-950: #010013;
 
+  /* Accent Colours */
   --color-accent-50: #fff8e1;
   --color-accent-100: #ffecb3;
   --color-accent-200: #ffe082;
@@ -26,6 +29,29 @@
   --color-accent-800: #ff8f00;
   --color-accent-900: #ff6f00;
   --color-accent-950: #e65100;
+
+  /* Highlight Colours */
+  --tw-color-accent-700: var(--color-accent-950);
+}
+
+.from-accent-700 {
+  background-image: linear-gradient(
+    to right,
+    var(--tw-color-accent-700) 0%,
+    var(--tw-color-accent-700) 100%
+  );
+}
+
+.to-accent-700 {
+  background-image: linear-gradient(
+    to right,
+    var(--tw-color-accent-700) 0%,
+    var(--tw-color-accent-700) 100%
+  );
+}
+
+.hover-text-accent-700:hover {
+  color: rgba(230, 81, 0, 1);
 }
 
 /* Custom Text Variants */
