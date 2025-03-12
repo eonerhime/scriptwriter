@@ -16,6 +16,7 @@ function AboutContent({ profileImage }) {
         transition={{ duration: 0.8 }}
       >
         <Image
+          quality={80}
           src={profileImage}
           alt="Ifeoma Emo-Onerhime"
           width={500}

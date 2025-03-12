@@ -76,9 +76,9 @@ function HomeContent({ profileImage }) {
           <Image
             quality={80}
             src={profileImage}
+            alt="Ifeoma Emo-Onerhime"
             width={500}
             height={500}
-            alt="Ifeoma Emo-Onerhime"
             className="h-full max-w-[100%] min-[601px]:w-[90%] object-cover overflow-visible"
           />
         </motion.div>
