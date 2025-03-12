@@ -1,4 +1,4 @@
-import profileImage from "../../../public/ifeoma.png";
+import profileImage from "@/assets/ifeoma.png";
 import AboutContent from "@/components/AboutContent";
 
 // Shows on About only
