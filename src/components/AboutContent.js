@@ -20,7 +20,7 @@ function AboutContent({ profileImage }) {
           alt="Ifeoma Emo-Onerhime"
           width={500}
           height={500}
-          className="object-cover overflow-visible min-[601px]:max-w-full min-[601px]:h-full min-[601px]:w-full"
+          className="object-cover overflow-visible max-w-full min-[601px]:h-full min-[601px]:w-full"
         />
       </motion.div>
 

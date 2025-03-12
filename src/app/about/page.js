@@ -1,5 +1,3 @@
-
-import profileImage from "@/assets/ifeoma.png";
 import AboutContent from "@/components/AboutContent";
 
 // Shows on About only
@@ -8,5 +6,5 @@ const metadata = {
 };
 
 export default function Page() {
-  return <AboutContent profileImage={profileImage} />;
+  return <AboutContent profileImage="/ifeoma.png" />;
 }
