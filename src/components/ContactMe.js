@@ -22,7 +22,7 @@ export default function Page() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          Fill out the form, and I'll be in touch shortly.
+          Fill out the form, and I&apos;ll be in touch shortly.
         </motion.p>
 
         {/* Social Icons */}

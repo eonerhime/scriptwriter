@@ -26,8 +26,8 @@ function BlogList({ posts }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
-        Ifeoma's blog is a collection of posts that are inspired by her life's
-        experiences. Enjoy and be inspired.
+        Ifeoma&apos;s blog is a collection of posts that are inspired by her
+        life&apos;s experiences. Enjoy and be inspired.
       </motion.p>
 
       {/* Blog Posts Grid with Staggered Animation */}

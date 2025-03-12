@@ -26,8 +26,8 @@ function PortfolioList({ portfolio }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
-        Ifeoma's portfolio is a collection of posters of feature films and TV
-        serials she has writter, and have been aired.
+        Ifeoma&apos;s portfolio is a collection of posters of feature films and
+        TV serials she has writter, and have been aired.
       </motion.p>
 
       {/* Portfolio Grid with Staggered Animation */}
