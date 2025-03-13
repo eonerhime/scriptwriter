@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const btnStyle =
   "flex gap-2 w-40 py-3 border-2 border-primary-50  border-style:solid rounded-md uppercase font-bold justify-center align-middle";
 
-function HomeContent({ profileImage }) {
+export default function HomeContent({ profileImage }) {
   return (
     <>
       {/* Landing Content */}
@@ -79,7 +79,7 @@ function HomeContent({ profileImage }) {
             alt="Ifeoma Emo-Onerhime"
             width={500}
             height={500}
-            className="h-full max-w-[100%] min-[601px]:w-[90%] object-cover overflow-visible"
+            className="h-full w-fit max-w-[100%] object-cover overflow-visible"
           />
         </motion.div>
       </section>
@@ -89,5 +89,3 @@ function HomeContent({ profileImage }) {
     </>
   );
 }
-
-export default HomeContent;
