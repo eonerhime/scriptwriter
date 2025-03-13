@@ -1,7 +1,7 @@
 import { Montserrat } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
-import FloatingButton from "@/components/FloatingButton"; // Import the new button component
+import FloatingButton from "@/components/FloatingButton";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
