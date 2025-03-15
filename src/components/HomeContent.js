@@ -10,7 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const testimonials = [
   {
-    text: "Ifeoma is a masterful storyteller with a unique voice and vision. Her scripts are meticulously crafted, with complex characters, razor-sharp dialogue, and narratives that captivate and inspire. I can't wait to see what she comes up with next."
+    text: "Ifeoma is a masterful storyteller with a unique voice and vision. Her scripts are meticulously crafted, with complex characters, razor-sharp dialogue, and narratives that captivate and inspire. I can't wait to see what she comes up with next.",
     name: "Iyke-u-Anthoni – Nollywood Director",
     rating: 5,
   },
