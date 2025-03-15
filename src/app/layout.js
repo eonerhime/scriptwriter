@@ -2,6 +2,7 @@ import { Montserrat } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
 import FloatingButton from "@/components/FloatingButton";
+import Footer from "@/components/Footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -15,7 +16,7 @@ export const metadata = {
     default: "Welcome - Ifeoma Emo-Onerhime",
   },
   description:
-    "A freelance writer based in #Lagos. I make visual your movie, sitcom, TV series, and documentary ideas",
+    "A scriptwriter based in #Lagos. I make visual your movie, sitcom, TV series, and documentary ideas",
 };
 
 export default function RootLayout({ children }) {
@@ -27,10 +28,12 @@ export default function RootLayout({ children }) {
         <Header />
 
         <div className="flex-1 flex flex-col w-full h-full">
-          <main className="w-[95%] mx-auto flex-grow flex flex-col justify-between h-full">
+          <main className="mx-auto flex-grow flex flex-col justify-between w-full max-w-7xl px-4">
             {children}
           </main>
         </div>
+
+        <Footer />
 
         <FloatingButton />
       </body>

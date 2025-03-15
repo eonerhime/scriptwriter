@@ -1,11 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { LoremIpsum } from "react-lorem-ipsum";
 import { motion } from "framer-motion";
 
-export default function Page({ services }) {
+export default function ServiceList({ services }) {
   return (
-    <div className="relative w-full h-screen mt-6">
+    <div className="relative w-full align-middle mt-6 mb-12">
       {/* Background Image */}
       <div
         className="fixed inset-0 bg-center bg-cover bg-no-repeat opacity-20"
@@ -23,36 +24,51 @@ export default function Page({ services }) {
       </motion.h1>
 
       {/* Service Cards Grid */}
-      <div className="absolute grid grid-cols-[1fr] auto-rows-auto gap-4 text-center top-24 left-0 w-full h-full min-[601px]:grid-cols-[1fr_1fr] min-[840px]:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr]">
+      <div className="relative grid grid-cols-1 auto-rows-auto gap-6 text-center mt-8 min-[601px]:grid-cols-2 min-[840px]:grid-cols-3">
         {services.map((service, index) => (
-          <motion.div
-            key={index}
-            className={`flex flex-col items-center gap-4 pb-6 ${
-              index === 0
-                ? " min-[840px]:col-start-1 min-[840px]:col-end-3"
-                : index === 1
-                ? " min-[840px]:col-start-3 min-[840px]:col-end-5"
-                : index === 2
-                ? " min-[840px]:col-start-5 min-[840px]:col-end-7"
-                : index === 3
-                ? " min-[840px]:col-start-2 min-[840px]:col-end-4"
-                : "min-[840px]:col-start-4 min-[840px]:col-end-6"
-            }`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
-            <div>{service.icon}</div>
-            <h2 className="uppercase font-bold">{service.title}</h2>
-            <LoremIpsum
-              random={true}
-              avgWordsPerSentence={1}
-              startWithLoremIpsum={false}
-            />
-          </motion.div>
+          <FlipCard key={index} service={service} />
         ))}
       </div>
+    </div>
+  );
+}
+
+// Flip Card Component
+function FlipCard({ service }) {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <div
+      className="relative w-4/5 max-w-xs h-64 mx-autoperspective-1000 cursor-pointer mb-4"
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+    >
+      <motion.div
+        className="relative w-full h-full rounded-lg transform-style-3d"
+        animate={{ rotateY: flipped ? 180 : 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        {/* Front Side */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-primary-500 text-primary-50 rounded-lg">
+          <div className="mt-4 text-4xl">{service.icon}</div>
+          <h2 className="uppercase font-bold">{service.title}</h2>
+        </div>
+
+        {/* Back Side */}
+        <motion.div
+          className="absolute inset-0 flex flex-col items-center justify-center bg-accent-950 text-primary-50 px-4 py-6 rounded-lg"
+          initial={{ rotateY: 180, opacity: 0 }}
+          animate={{ opacity: flipped ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <LoremIpsum
+            random={true}
+            avgWordsPerSentence={5}
+            avgSentencesPerParagraph={2}
+            startWithLoremIpsum={false}
+          />
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

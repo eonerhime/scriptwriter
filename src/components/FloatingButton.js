@@ -11,7 +11,7 @@ export default function FloatingButton() {
   const pathname = usePathname(); // Get current route
 
   // Hide the button if the user is on the Contact page
-  if (pathname === "/contact") return null;
+  if (pathname === "/contact" || pathname === "/") return null;
 
   return (
     <Button btnStyle={btnStyle}>

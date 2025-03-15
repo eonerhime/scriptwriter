@@ -24,7 +24,8 @@ export default function NavigationClient() {
           >
             <span
               className={`${
-                pathname === path && "line-through"
+                pathname === path &&
+                "line-through decoration-accent-950 decoration-1"
               } bg-left-bottom bg-gradient-to-r from-accent-700 to-accent-700 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out`}
             >
               {name}
