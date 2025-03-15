@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import LoremIpsum from "react-lorem-ipsum";
 
 function BlogList({ posts }) {
   return (
@@ -54,13 +53,12 @@ function BlogList({ posts }) {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.5 }}
           >
-            <img src={post.image} alt="Lorem Picsum" className="rounded-lg" />
+            <img src={post.image} alt="image" className="rounded-lg" />
             <h2 className="uppercase font-bold">{post.title}</h2>
-            <LoremIpsum
-              random={true}
-              avgWordsPerSentence={1}
-              startWithLoremIpsum={false}
-            />
+            <p>
+              Felis nascetur. Semper ridiculus. Vehicula. Pellentesque. Feugiat.
+              Ex senectus. Consequat. Dolor. Lacinia.
+            </p>
           </motion.div>
         ))}
       </motion.div>

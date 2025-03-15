@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { LoremIpsum } from "react-lorem-ipsum";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function ServiceList({ services }) {
   return (
@@ -61,12 +60,10 @@ function FlipCard({ service }) {
           animate={{ opacity: flipped ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <LoremIpsum
-            random={true}
-            avgWordsPerSentence={5}
-            avgSentencesPerParagraph={2}
-            startWithLoremIpsum={false}
-          />
+          <p>
+            Felis nascetur. Semper ridiculus. Vehicula. Pellentesque. Feugiat.
+            Ex senectus. Consequat. Dolor. Lacinia.
+          </p>
         </motion.div>
       </motion.div>
     </div>

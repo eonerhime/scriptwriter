@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import Button from "./Button";
-import Image from "next/image";
-import LoremIpsum from "react-lorem-ipsum";
-import { FaQuoteLeft, FaQuoteRight, FaStar } from "react-icons/fa";
-import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { FaQuoteLeft, FaQuoteRight, FaStar } from "react-icons/fa";
+import Button from "./Button";
 
 const testimonials = [
   {
@@ -383,13 +382,16 @@ export default function HomeContent({ profileImage }) {
               <h2 className="text-2xl font-bold text-accent-950">
                 The Art of Writing Engaging Dialogues
               </h2>
-              <p className="text-primary-100 md:self-center">
-                <LoremIpsum
-                  random={true}
-                  avgWordsPerSentence={4}
-                  startWithLoremIpsum={true}
-                />
-              </p>
+              <div className="text-primary-100 md:self-center">
+                <p>
+                  Felis nascetur. Semper ridiculus. Vehicula. Pellentesque.
+                  Feugiat. Ex senectus. Consequat. Dolor. Lacinia.Felis
+                  nascetur. Semper ridiculus. Vehicula. Pellentesque. Feugiat.
+                  Ex senectus. Consequat. Dolor. Lacinia.Felis nascetur. Semper
+                  ridiculus. Vehicula. Pellentesque. Feugiat. Ex senectus.
+                  Consequat. Dolor. Lacinia.
+                </p>
+              </div>
             </div>
           </motion.div>
         </Link>
