@@ -19,7 +19,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    text: "Ifeoma&apos;s insightful feedback pushed me to refine my script in ways I hadn&apos;t considered. Her detailed notes were both actionable and encouraging, making my story stronger. If you need a screenwriter who truly understands structure and character, she&apos;s an invaluable resource.",
+    text: "Ifeoma's insightful feedback pushed me to refine my script in ways I hadn't considered. Her detailed notes were both actionable and encouraging, making my story stronger. If you need a screenwriter who truly understands structure and character, she's an invaluable resource.",
     name: "Oneme Ofurhie – Digital Animator, Producer USA",
     rating: 5,
   },
@@ -30,7 +30,7 @@ const testimonials = [
   },
   {
     text: "Ifeoma Onerhime transformed my deeply personal experiences into a powerful script with empathy and skill. Her warm, attentive nature made sharing my story effortless, and she captured its essence even better than I could. I have no regrets working with her and will do so again. If you need a screenwriter who truly listens and understands, I highly recommend Ifeoma.",
-    name: "Misan Udogie – Author,  Executive Producer &apos;My Name is Misan&apos;",
+    name: "Misan Udogie – Author,  Executive Producer 'My Name is Misan'",
     rating: 5,
   },
 ];
