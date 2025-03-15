@@ -2,15 +2,21 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import bgImage from "../../public/wd2.jpg";
+import Image from "next/image";
 
 export default function ServiceList({ services }) {
   return (
     <div className="relative w-full align-middle mt-6 mb-12">
       {/* Background Image */}
-      <div
-        className="fixed inset-0 bg-center bg-cover bg-no-repeat opacity-20"
-        style={{ backgroundImage: "url('http://localhost:3000/wd2.jpg')" }}
-      />
+      <div className="fixed inset-0 bg-center bg-cover bg-no-repeat opacity-20">
+        <Image
+          src={bgImage}
+          width={1920}
+          height={1080}
+          alt="scriptwriter bg image"
+        />
+      </div>
 
       {/* Animated Title */}
       <motion.h1
