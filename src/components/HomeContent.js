@@ -10,28 +10,28 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const testimonials = [
   {
-    text: `Ifeoma is a masterful storyteller with a unique voice and vision.  Her scripts are meticulously crafted, with complex characters, razor-sharp dialogue, and narratives that captivate and inspire. I can't wait to see what she comes up with next.`,
+    text: "Ifeoma is a masterful storyteller with a unique voice and vision. Her scripts are meticulously crafted, with complex characters, razor-sharp dialogue, and narratives that captivate and inspire. I can't wait to see what she comes up with next."
     name: "Iyke-u-Anthoni – Nollywood Director",
     rating: 5,
   },
   {
-    text: `Ifeoma is a gifted screenwriter with a unique voice. She has crafted exceptional scripts for me, including Indigo Glass, Akpos and Company, Mr. Wonderful, and Scarred. Her creativity and dedication make her a top choice for any screenplay project.`,
+    text: "Ifeoma is a gifted screenwriter with a unique voice. She has crafted exceptional scripts for me, including Indigo Glass, Akpos and Company, Mr. Wonderful, and Scarred. Her creativity and dedication make her a top choice for any screenplay project.",
     name: "Mike Nliam –  Veteran Nollywood producer",
     rating: 5,
   },
   {
-    text: `Ifeoma's insightful feedback pushed me to refine my script in ways I hadn&pos;t considered. Her detailed notes were both actionable and encouraging, making my story stronger. If you need a screenwriter who truly understands structure and character, she&pos;s an invaluable resource.`,
+    text: "Ifeoma&apos;s insightful feedback pushed me to refine my script in ways I hadn&apos;t considered. Her detailed notes were both actionable and encouraging, making my story stronger. If you need a screenwriter who truly understands structure and character, she&apos;s an invaluable resource.",
     name: "Oneme Ofurhie – Digital Animator, Producer USA",
     rating: 5,
   },
   {
-    text: "Ifeoma Onerhime masterfully adapted my novel Burning Hurt into a compelling screenplay. Her passion, creativity, and keen storytelling brought my characters to life in unexpected ways. Professional, dedicated, and a joy to work with—I highly recommend her for capturing emotion and depth in any script.",
+    text: "Ifeoma Onerhime masterfully adapted my novel Burning Hurt into a compelling screenplay. Her passion, creativity, and keen storytelling brought my characters to life in unexpected ways. Professional, dedicated, and a joy to work wit — I highly recommend her for capturing emotion and depth in any script.",
     name: "-	Amb. Dr. Unyime-Ivy King – Author, Burning Hurt",
     rating: 5,
   },
   {
-    text: `Ifeoma Onerhime transformed my deeply personal experiences into a powerful script with empathy and skill. Her warm, attentive nature made sharing my story effortless, and she captured its essence even better than I could. I have no regrets working with her and will do so again. If you need a screenwriter who truly listens and understands, I highly recommend Ifeoma.`,
-    name: "Misan Udogie – Author,  Executive Producer 'My Name is Misan'",
+    text: "Ifeoma Onerhime transformed my deeply personal experiences into a powerful script with empathy and skill. Her warm, attentive nature made sharing my story effortless, and she captured its essence even better than I could. I have no regrets working with her and will do so again. If you need a screenwriter who truly listens and understands, I highly recommend Ifeoma.",
+    name: "Misan Udogie – Author,  Executive Producer &apos;My Name is Misan&apos;",
     rating: 5,
   },
 ];
@@ -72,8 +72,8 @@ export default function HomeContent({ profileImage }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <strong>Let's</strong> <em>Create</em> <strong>Something</strong>{" "}
-            <em>Great</em> <strong>Together</strong>
+            <strong>Let&apos;s</strong> <em>Create</em>{" "}
+            <strong>Something</strong> <em>Great</em> <strong>Together</strong>
           </motion.p>
 
           {/* Animated Description */}
@@ -96,7 +96,7 @@ export default function HomeContent({ profileImage }) {
             className="mt-6"
           >
             <Button btnStyle={`${btnStyle} flex gap-2 w-auto px-6 py-3`}>
-              <Link href="/contact">Let's Talk</Link>
+              <Link href="/contact">Let&apos;s Talk</Link>
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -261,7 +261,7 @@ export default function HomeContent({ profileImage }) {
               posts, I bring ideas to life with engaging stories and compelling
               narratives. 🎥 Ready to see your story come to life? <br />
               <Link href="/contact" className="underline">
-                Let's work together!
+                Let&apos;s work together!
               </Link>{" "}
               🌟
             </p>
