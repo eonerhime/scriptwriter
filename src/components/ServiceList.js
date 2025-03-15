@@ -9,12 +9,14 @@ export default function ServiceList({ services }) {
   return (
     <div className="relative w-full align-middle mt-6 mb-12">
       {/* Background Image */}
-      <div className="fixed inset-0 bg-center bg-cover bg-no-repeat opacity-20">
+      <div className="fixed inset-0 w-full h-full">
         <Image
           src={bgImage}
-          width={1920}
-          height={1080}
           alt="scriptwriter bg image"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="opacity-20"
         />
       </div>
 
