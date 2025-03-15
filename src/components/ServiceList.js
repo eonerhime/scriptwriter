@@ -24,6 +24,7 @@ export default function ServiceList({ services }) {
 
       {/* Service Cards Grid */}
       <div className="relative grid grid-cols-1 auto-rows-auto gap-6 text-center mt-8 min-[601px]:grid-cols-2 min-[840px]:grid-cols-3">
+        {/* flex flex-col items-center */}
         {services.map((service, index) => (
           <FlipCard key={index} service={service} />
         ))}
@@ -38,7 +39,7 @@ function FlipCard({ service }) {
 
   return (
     <div
-      className="relative w-4/5 max-w-xs h-64 mx-autoperspective-1000 cursor-pointer mb-4"
+      className="relative w-4/5 max-w-xs h-64 mx-auto perspective-1000 cursor-pointer mb-4"
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
     >
@@ -49,8 +50,8 @@ function FlipCard({ service }) {
       >
         {/* Front Side */}
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-primary-500 text-primary-50 rounded-lg">
-          <div className="mt-4 text-4xl">{service.icon}</div>
-          <h2 className="uppercase font-bold">{service.title}</h2>
+          <div className="text-4xl">{service.icon}</div>
+          <h2 className="mt-6 uppercase font-bold">{service.title}</h2>
         </div>
 
         {/* Back Side */}
