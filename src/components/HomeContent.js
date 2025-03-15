@@ -212,11 +212,18 @@ export default function HomeContent({ profileImage }) {
               well-structured scripts that captivate audiences and bring ideas
               to the screen.
               <br />
-              ✨ What I Offer: <br />
-              🎬 Screenwriting – From concept to polished script. <br />
+              <br />
+              ✨ What I Offer:
+              <br />
+              <br />
+              🎬 Screenwriting – From concept to polished script.
+              <br />
+              <br />
               📝 Dialogue Perfection – Authentic and impactful conversations.{" "}
               <br />
+              <br />
               🎭 Character Development – Creating memorable, dynamic characters.{" "}
+              <br />
               <br />
               📖 Story Structuring – Ensuring strong narratives with compelling
               arcs. Ready to transform your vision into a masterpiece?
