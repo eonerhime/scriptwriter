@@ -2,10 +2,9 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import { Montserrat } from "next/font/google";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Providers from "@/components/ThemeCom";
 import FloatingButton from "@/components/FloatingButton";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -31,7 +30,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider attribute="class" defaultTheme="system">
           <Header />
           <div className="flex-1 flex flex-col w-full h-full">
-            <main className="mx-auto flex-grow flex flex-col justify-between w-full max-w-7xl">
+            <main className="mx-auto flex-grow flex flex-col justify-between w-full max-w-7xl px-4 sm:px-6 lg:px-8">
               {children}
             </main>
           </div>
