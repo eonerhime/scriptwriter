@@ -3,10 +3,3 @@ const config = {
 };
 
 export default config;
-
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   plugins: {
-//     "@tailwindcss/postcss": {},
-//   },
-// };

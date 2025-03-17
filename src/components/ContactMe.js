@@ -14,12 +14,12 @@ export default function Page() {
     <div className="mt-8 grid grid-cols-1 min-[840px]:grid-cols-2 gap-8 md:px-12">
       {/* Contact Info Section */}
       <div className="flex flex-col justify-center text-center mt-6">
-        <h2 className="text-center text-xl font-bold text-primary-50 uppercase min-[840px]:text-2xl mb-6">
+        <h2 className="text-xl font-bold uppercase min-[840px]:text-2xl mb-6  dark:text-primary-50">
           Contact Me
         </h2>
 
         <motion.p
-          className="text-primary-100 text-lg mb-6"
+          className="text-lg mb-6  dark:text-primary-200"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
@@ -47,8 +47,9 @@ export default function Page() {
             >
               <SocialIcon
                 bgColor="transparent"
+                fgColor="currentColor"
                 url={social.url}
-                className="border-2 border-solid rounded-full"
+                className="border-2 border-solid rounded-full  dark:text-primary-50"
                 target="_blank"
               />
             </motion.div>

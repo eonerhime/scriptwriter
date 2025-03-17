@@ -50,19 +50,22 @@
   );
 }
 
-.hover\:bg-primary-700 {
+/* .hover\:bg-primary-950 {
   &:hover {
     @media (hover: hover) {
-      color: var(--color-accent-950);
+      background-color: var(--color-accent-950);
       background-color: var(--color-primary-700);
     }
   }
-}
+} */
 
+/* Hover colour */
 .hover-text-accent-700:hover {
+  color: var(--color-accent-700);
+}
+.hover-text-accent-950:hover {
   color: var(--color-accent-950);
 }
-
 .decoration-accent-950 {
   text-decoration-color: var(--color-accent-950);
 }
@@ -208,16 +211,35 @@
   background-color: var(--color-accent-950);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--color-primary-950);
-    --foreground: var(--color-primary-50);
-  }
+/* Dark mode */
+/* .dark-text-primary-50 {
+  color: var(--color-primary-50);
+}
+.dark-bg-primary-500 {
+  background-color: var(--color-primary-500);
+} */
+
+/* @theme {
+  --color: var(--foreground);
+  --background: var(--background);
+  --dark: "class";
+} */
+
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
+:root {
+  --background: var(--color-primary-500);
+  --foreground: var(--color-primary-50);
+}
+
+.dark body {
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 body {
-  background: var(--color-primary-950);
-  color: var(--color-primary-50);
+  background-color: var(--foreground);
+  color: var(--background);
 }
 
 @layer base {
@@ -234,8 +256,8 @@ body {
     width: 60px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 8px solid var(--color-primary-950);
-    border-right-color: var(--color-primary-200);
+    border: 8px solid var(--color-primary-500);
+    border-right-color: var(--color-primary-50);
     animation: rotate 1s infinite linear;
   }
 
@@ -244,7 +266,7 @@ body {
     width: 20px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 2px solid var(--color-primary-200);
+    border: 2px solid var(--color-primary-50);
     border-right-color: transparent;
     animation: rotate 1s infinite linear;
   }

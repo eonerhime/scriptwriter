@@ -4,7 +4,7 @@ import { useState } from "react";
 import SubmitButton from "./SubmitButton";
 
 const btnStyle =
-  "bg-primary-400 px-4 py-4 text-primary-50 font-semibold uppercase hover:bg-accent-950 transition-all rounded-sm disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300";
+  "px-4 py-4 border-2 border-primary-50 font-semibold uppercase hover:bg-accent-950 transition-all rounded-sm disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300";
 
 function SubmitEnquiryForm() {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ function SubmitEnquiryForm() {
   return (
     <form
       action=""
-      className="bg-primary-900 w-full max-w-full py-6 px-6 text-lg flex flex-col gap-4 mx-auto"
+      className="dark:border-2 dark:border-primary-900 w-full max-w-full py-6 px-6 text-lg flex flex-col gap-4 mx-auto rounded-lg"
     >
       {/* Name & Email Fields */}
       <div className="flex flex-col min-[840px]:flex-row gap-4 w-full">
@@ -32,7 +32,7 @@ function SubmitEnquiryForm() {
           placeholder="Name"
           value={formData.name}
           onChange={handleChange}
-          className="px-4 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm"
+          className="px-4 py-3 dark:bg-primary-900 bg-primary-100 text-primary-900 w-full shadow-sm rounded-sm dark:border-2 dark:border-primary-900 focus:ring-2 focus:ring-accent-950 dark:focus:ring-accent-500"
           required
         />
 
@@ -42,7 +42,7 @@ function SubmitEnquiryForm() {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          className="px-4 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm"
+          className="px-4 py-3 bg-primary-100 dark:bg-primary-700 text-primary-800 dark:text-primary-50 w-full shadow-sm rounded-sm dark:border-2 dark:border-primary-900 focus:ring-2 focus:ring-accent-950 dark:focus:ring-accent-500"
           required
         />
       </div>
@@ -54,7 +54,7 @@ function SubmitEnquiryForm() {
         placeholder="Subject"
         value={formData.subject}
         onChange={handleChange}
-        className="px-4 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm"
+        className="px-4 py-3 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-50 w-full shadow-sm rounded-sm dark:border-2 dark:border-primary-900 focus:ring-2 focus:ring-accent-950 dark:focus:ring-accent-500"
         required
       />
 
@@ -65,13 +65,16 @@ function SubmitEnquiryForm() {
         placeholder="Type your message here..."
         value={formData.message}
         onChange={handleChange}
-        className="px-4 py-3 bg-primary-100 text-primary-800 w-full shadow-sm rounded-sm"
+        className="px-4 py-3 bg-primary-100 dark:bg-primary-700 text-primary-800 dark:text-primary-50 w-full shadow-sm rounded-sm dark:border-2 dark:border-primary-900 focus:ring-2 focus:ring-accent-950 dark:focus:ring-accent-500"
         required
       />
 
       {/* Submit Button */}
       <div className="flex justify-center min-[601px]:justify-end">
-        <SubmitButton btnStyle={btnStyle} pendingLabel="Sending...">
+        <SubmitButton
+          btnStyle={`${btnStyle} dark:text-primary-800 dark:bg-primary-50`}
+          pendingLabel="Sending..."
+        >
           Send Message
         </SubmitButton>
       </div>

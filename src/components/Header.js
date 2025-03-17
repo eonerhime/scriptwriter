@@ -1,14 +1,16 @@
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import MobileMenu from "./MobileMenu";
+import DarkModeSwitch from "./DarkModeSwtch";
 
 function Header() {
   return (
-    <header className="border-b border-primary-300 pb-2 mx-4 z-40">
-      <div className="flex mt-4 min-[601px]:justify-center min-[840px]:justify-between items-center ">
+    <header className="border-b border-primary-300 w-full pb-2 z-20">
+      <div className="flex justify-between gap-6 items-center mt-4 ">
         <MobileMenu />
         <Logo />
         <Navigation />
+        <DarkModeSwitch />
       </div>
     </header>
   );

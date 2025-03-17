@@ -134,14 +134,17 @@ export default function HomeContent({ profileImage }) {
         </motion.div>
       </section>
 
+      {/* Section Separator */}
+      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
+
       {/* About Section */}
-      <motion.section className="container relative gap-8 bg-primary-50 text-primary-950 mx-auto px-6 grid grid-cols-1 md:grid-cols-2 mt-20">
-        <div className="order-1 md:mt-32 min-[601px]:order-1">
+      <motion.section className="container relative dark:bg-primary-50 gap-8 dark:bg-primary-900 dark:text-primary-50 grid grid-cols-1 md:grid-cols-2">
+        <div className="order-1 md:mt-24 min-[601px]:order-1">
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="pt-16 md:pt-0"
+            className=""
           >
             <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
               About Me
@@ -154,9 +157,8 @@ export default function HomeContent({ profileImage }) {
           </motion.div>
         </div>
 
-        <div className="clear md:absolute left-6 bottom-14 order-3 mt-0 text-sm text-start mb-12 min-[601px]:order-3 min-[840px]:col-span-1">
+        <div className="clear md:absolute left-0 bottom-14 order-3 mt-0 text-sm text-start min-[601px]:order-3 min-[840px]:col-span-1">
           <motion.p
-            className="text-primary-500"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -172,9 +174,7 @@ export default function HomeContent({ profileImage }) {
               whileHover={{ scale: 1.1 }}
               className="mt-6 origin-center" // Ensures even scaling
             >
-              <Button
-                btnStyle={`${btnStyle} bg-primary-700 text-primary-50 mt-4`}
-              >
+              <Button btnStyle={`${btnStyle} bg-primary-700 text-primary-50`}>
                 <Link href="/about">Read more...</Link>
               </Button>
             </motion.div>
@@ -186,17 +186,18 @@ export default function HomeContent({ profileImage }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="order-2 mb-0 overflow-hidden h-[200px] min-[601px]:order-2 md:mt-16 md:mb-16 md:h-[400px] "
+          className="order-2 mb-0 overflow-hidden h-[200px] min-[601px]:order-2 md:h-[400px]"
+          //  md:mt-16 md:mb-16
         >
-          <img src="/about-me.jpg" alt="About" className="w-max shadow-lg" />
+          <img src="/about-me.jpg" alt="About" className="w-max" />
         </motion.div>
       </motion.section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-20"></div>
+      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* Services Section */}
-      <motion.section className="container px-6 mt-8">
+      <motion.section className="container px-6">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Services
         </h2>
@@ -206,7 +207,7 @@ export default function HomeContent({ profileImage }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <p className="mt-2 text-primary-50">
+            <p className="mt-2">
               Great stories deserve great scripts! Whether it’s a film, TV
               series, web content, or short film, I craft engaging,
               well-structured scripts that captivate audiences and bring ideas
@@ -237,7 +238,7 @@ export default function HomeContent({ profileImage }) {
                 whileHover={{ scale: 1.1 }}
                 className="mt-6 origin-center"
               >
-                <Button btnStyle={`${btnStyle} text-primary-50 mt-4`}>
+                <Button btnStyle={`${btnStyle} mt-4`}>
                   <Link href="/services">
                     <span className="underline">Explore My Services</span> 🚀
                   </Link>
@@ -249,10 +250,10 @@ export default function HomeContent({ profileImage }) {
       </motion.section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-20"></div>
+      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* Portfolio Section */}
-      <motion.section className="container px-6 mt-8">
+      <motion.section className="container px-6">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Portfolio
         </h2>
@@ -262,7 +263,7 @@ export default function HomeContent({ profileImage }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <p className="mt-2 text-primary-50">
+            <p className="mt-2">
               Check out some of my recent projects. From screenplays to blog
               posts, I bring ideas to life with engaging stories and compelling
               narratives. 🎥 Ready to see your story come to life? <br />
@@ -280,7 +281,7 @@ export default function HomeContent({ profileImage }) {
                 whileHover={{ scale: 1.1 }}
                 className="mt-6 origin-center"
               >
-                <Button btnStyle={`${btnStyle} text-primary-50 mt-4`}>
+                <Button btnStyle={`${btnStyle} mt-4`}>
                   <Link href="/services">
                     <span className="underline">View My Portfolio</span> 💼
                   </Link>
@@ -291,8 +292,11 @@ export default function HomeContent({ profileImage }) {
         </div>
       </motion.section>
 
+      {/* Section Separator */}
+      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
+
       {/* Testimonials Section */}
-      <motion.section className="container relative bg-primary-50 text-primary-950 mx-auto px-6 mt-20 py-10 text-center">
+      <motion.section className="container relative text-start">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           Testimonials
         </h2>
@@ -303,21 +307,23 @@ export default function HomeContent({ profileImage }) {
             <AnimatePresence mode="wait">
               <motion.div
                 key={index}
-                className="p-6 bg-white rounded-lg shadow-md text-center inline-block"
+                className="p-6 bg-white rounded-lg text-center inline-block"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.5 }}
               >
                 {/* Quote Icons & Text */}
-                <p className="text-gray-700 italic flex items-center justify-center gap-2">
-                  <FaQuoteLeft className="text-primary-700 text-4xl" />
+                <p className="text-primary-500 italic flex items-center justify-center gap-2">
+                  <FaQuoteLeft className="text-4xl" />
                   <span>{testimonials[index].text}</span>
-                  <FaQuoteRight className="text-primary-700 text-4xl" />
+                  <FaQuoteRight className="text-4xl" />
                 </p>
 
                 {/* Author Name */}
-                <p className="mt-2 font-bold">{testimonials[index].name}</p>
+                <p className="text-primary-500 mt-2 font-bold">
+                  {testimonials[index].name}
+                </p>
 
                 {/* Star Ratings */}
                 <div className="flex justify-center mt-2 text-yellow-500">
@@ -332,29 +338,23 @@ export default function HomeContent({ profileImage }) {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center gap-4 mt-6">
-            <button
-              className="px-6 py-3 bg-primary-700 text-white rounded-md"
-              onClick={prevTestimonial}
-            >
+          <div className="flex font-bold justify-center gap-4 mt-6">
+            <Button btnStyle={btnStyle} onClick={prevTestimonial}>
               Prev
-            </button>
-            <button
-              className="px-6 py-3 bg-primary-700 text-white rounded-md"
-              onClick={nextTestimonial}
-            >
+            </Button>
+            <Button btnStyle={btnStyle} onClick={nextTestimonial}>
               Next
-            </button>
+            </Button>
           </div>
         </div>
       </motion.section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-20"></div>
+      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* Blog Section */}
       <motion.section
-        className="max-w-7xl py-10 text-start px-6 cursor-pointer"
+        className="max-w-7xl text-start cursor-pointer"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -389,7 +389,7 @@ export default function HomeContent({ profileImage }) {
               <h2 className="text-2xl font-bold text-accent-950">
                 The Art of Writing Engaging Dialogues
               </h2>
-              <div className="text-primary-100 md:self-center">
+              <div className="md:self-center">
                 <p>
                   Felis nascetur. Semper ridiculus. Vehicula. Pellentesque.
                   Feugiat. Ex senectus. Consequat. Dolor. Lacinia.Felis
@@ -405,14 +405,14 @@ export default function HomeContent({ profileImage }) {
       </motion.section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-20"></div>
+      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* Contact Section */}
-      <section className="mx-auto w-4/5 max-w-3xl py-10 text-center">
+      <section className="w-full md:w-4/5 max-w-3xl mb-10 text-start">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           Get in Touch
         </h2>
-        <form className="mt-4 space-y-4">
+        <form className="mt-4 text-primary-50 space-y-4">
           <input
             type="text"
             placeholder="Name"
@@ -427,7 +427,7 @@ export default function HomeContent({ profileImage }) {
             placeholder="Message"
             className="w-full p-3 bg-primary-700 rounded-md"
           ></textarea>
-          <button className="w-full px-6 py-3 font-bold bg-accent-950 uppercase text-primary-50ß rounded-md hover:bg-primary-700 transition cursor-pointer">
+          <button className="w-full px-6 py-3 font-bold bg-accent-950 uppercase rounded-md hover:bg-primary-700 transition cursor-pointer">
             Send Message
           </button>
         </form>

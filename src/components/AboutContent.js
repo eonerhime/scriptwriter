@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 function AboutContent({ profileImage }) {
@@ -10,7 +10,7 @@ function AboutContent({ profileImage }) {
     <div className="grid grid-cols-1 gap-6 max-w-full py-8 min-[601px]:grid-cols-[40%_60%] min-[601px]:gap-12">
       {/* Profile Image */}
       <motion.div
-        className="h-full md:shrink-0 shadow-lg row-span-1 order-2 min-[601px]:max-w-max min-[601px]:order-1 min-[840px]:row-span-3"
+        className="h-full md:shrink-0 row-span-1 order-2 min-[601px]:max-w-max min-[601px]:order-1 min-[840px]:row-span-3"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -28,7 +28,7 @@ function AboutContent({ profileImage }) {
       {/* Animated Heading */}
       <div className="text-start order-1 mt-4 min-[601px]:text-start min-[601px]:mt-12 min-[601px]:order-2">
         <motion.h1
-          className="text-center text-xl font-bold text-primary-50 uppercase min-[840px]:text-2xl"
+          className="text-center text-xl font-bold dark:text-primary-50 uppercase min-[840px]:text-2xl"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -36,9 +36,8 @@ function AboutContent({ profileImage }) {
           About Scriptwriter
         </motion.h1>
 
-        {/* Description */}
         <motion.p
-          className="mt-4 text-primary-50 text-base leading-relaxed"
+          className="mt-4 dark:text-primary-50 text-base leading-relaxed"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -46,31 +45,23 @@ function AboutContent({ profileImage }) {
           <span className="font-semibold text-accent-950">
             Ifeoma Emo-Onerhime
           </span>{" "}
-          is a passionate writer with almost 2 decades of writing experience. My
-          goal is to inspire the world through words and connect with others. I
-          have my works showcased on some of the biggest stages in African and
-          the world, like ShowMax, Africa Magic, and Amazon Prime.
+          is a passionate writer with almost 2 decades of writing experience...
         </motion.p>
-      </div>
 
-      {/* Fun Fact or Interest */}
-      <div className="order-3 text-center min-[601px]:col-span-2 min-[840px]:col-span-1">
-        <motion.p
-          className="text-primary-200 col-span-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-        >
-          🍫 Lover of chocolates | 📖 Avid reader | 🍳 Cooking enthusiast | 📱
-          Social media explorer
-        </motion.p>
-      </div>
+        <div className="order-3 text-center min-[601px]:col-span-2 min-[840px]:col-span-1">
+          <motion.p
+            className="dark:text-primary-200 col-span-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            🍫 Lover of chocolates | 📖 Avid reader | 🍳 Cooking enthusiast | 📱
+            Social media explorer
+          </motion.p>
+        </div>
 
-      {/* Call-to-Action Button */}
-      <div className="flex justify-center order-4 min-[601px]:col-span-2 min-[840px]:col-span-1">
-        {/* Social Media Links */}
         <motion.div
-          className="flex justify-start space-x-4 text-primary-200"
+          className="flex justify-start space-x-4 dark:text-primary-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
@@ -79,7 +70,7 @@ function AboutContent({ profileImage }) {
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-accent-950 text-2xl"
+            className="hover:text-accent-700 dark:hover:text-accent-400 text-2xl"
           >
             <FaFacebook />
           </Link>
@@ -87,7 +78,7 @@ function AboutContent({ profileImage }) {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-accent-950 text-2xl"
+            className="hover:text-accent-700 dark:hover:text-accent-400 text-2xl"
           >
             <FaInstagram />
           </Link>
@@ -95,7 +86,7 @@ function AboutContent({ profileImage }) {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-accent-950 text-2xl"
+            className="hover:text-accent-700 dark:hover:text-accent-400 text-2xl"
           >
             <FaLinkedin />
           </Link>

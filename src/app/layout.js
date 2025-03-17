@@ -1,8 +1,11 @@
-import { Montserrat } from "next/font/google";
 import "@/styles/globals.css";
+import { ThemeProvider } from "next-themes";
+import { Montserrat } from "next/font/google";
+
 import Header from "@/components/Header";
-import FloatingButton from "@/components/FloatingButton";
 import Footer from "@/components/Footer";
+import Providers from "@/components/ThemeCom";
+import FloatingButton from "@/components/FloatingButton";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -16,26 +19,27 @@ export const metadata = {
     default: "Welcome - Ifeoma Emo-Onerhime",
   },
   description:
-    "A scriptwriter based in #Lagos. I make visual your movie, sitcom, TV series, and documentary ideas",
+    "As scriptwriter, I make visual your movie, sitcom, TV series, and documentary ideas.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${montserrat.className} antialiased bg-primary-500 text-primary-50 min-w-full min-h-screen flex flex-col relative min-[601px]:px-8 box-border`}
+        className={`${montserrat.className} antialiased min-w-full min-h-screen flex flex-col relative box-border`}
       >
-        <Header />
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <Header />
+          <div className="flex-1 flex flex-col w-full h-full">
+            <main className="mx-auto flex-grow flex flex-col justify-between w-full max-w-7xl">
+              {children}
+            </main>
+          </div>
 
-        <div className="flex-1 flex flex-col w-full h-full">
-          <main className="mx-auto flex-grow flex flex-col justify-between w-full max-w-7xl px-4">
-            {children}
-          </main>
-        </div>
+          <Footer />
 
-        <Footer />
-
-        <FloatingButton />
+          <FloatingButton />
+        </ThemeProvider>
       </body>
     </html>
   );
