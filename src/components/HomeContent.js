@@ -62,11 +62,11 @@ export default function HomeContent({ profileImage }) {
   return (
     <>
       {/* Landing Content */}
-      <section className="grid grid-cols-1 min-[601px]:grid-cols-[40%_60%]">
-        <div className="order-2 mt-4 z-30 flex flex-col items-center justify-center min-[601px]:mt-20 min-[601px]:order-1 md:gap-8">
+      <section className="grid grid-cols-1 min-[601px]:grid-cols-[40%_60%] text-start">
+        <div className="order-2 mt-4 z-30 flex flex-col justify-center min-[601px]:mt-20 min-[601px]:order-1 md:gap-8">
           {/* Animated Heading */}
           <motion.p
-            className="mt-6 text-center text-xl min-[601px]:text-2xl uppercase"
+            className="mt-6 text-xl min-[601px]:text-2xl uppercase"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -77,7 +77,7 @@ export default function HomeContent({ profileImage }) {
 
           {/* Animated Description */}
           <motion.p
-            className="text-center text-sm mt-4"
+            className="text-sm mt-4 pr-4 md:pr-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -197,7 +197,7 @@ export default function HomeContent({ profileImage }) {
       <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* Services Section */}
-      <motion.section className="container px-6">
+      <motion.section className="container">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Services
         </h2>
@@ -253,7 +253,7 @@ export default function HomeContent({ profileImage }) {
       <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* Portfolio Section */}
-      <motion.section className="container px-6">
+      <motion.section className="container">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Portfolio
         </h2>

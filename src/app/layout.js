@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider attribute="class" defaultTheme="system">
           <Header />
           <div className="flex-1 flex flex-col w-full h-full">
-            <main className="mx-auto flex-grow flex flex-col justify-between w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+            <main className="flex-grow flex flex-col justify-between w-full max-w-5xl mx-6 md:mx-12">
               {children}
             </main>
           </div>
@@ -43,3 +43,9 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+/*
+ To do:
+ 1. fix margin on the body/ header
+ 2. Floating menu when scrolling
+ */

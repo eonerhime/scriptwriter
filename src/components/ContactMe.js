@@ -11,7 +11,7 @@ const metadata = {
 
 export default function Page() {
   return (
-    <div className="mt-8 grid grid-cols-1 min-[840px]:grid-cols-2 gap-8 md:px-12">
+    <div className="mt-8 mb-8 grid grid-cols-1 min-[840px]:grid-cols-2 gap-8 md:px-12">
       {/* Contact Info Section */}
       <div className="flex flex-col justify-center text-center mt-6">
         <h2 className="text-xl font-bold uppercase min-[840px]:text-2xl mb-6  dark:text-primary-50">
