@@ -25,11 +25,11 @@ export default function MobileMenu() {
 
       {/* Mobile Menu */}
       <nav
-        className={`absolute top-16 left-0 w-3/4 dark:bg-primary-500 text-primary-50 p-6 space-y-4 shadow-md transition-transform ${
+        className={`absolute top-16 left-0 w-11/12 text-primary-50 z-10 font-semibold  transparent-bg-primary-500 text-primary-50 p-6 space-y-4 shadow-md transition-transform ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
-        } md:hidden bg-primary-500 bg-opacity-25`}
+        } md:hidden bg-opacity-25`}
       >
-        <ul className="flex flex-col items-start gap-4">
+        <ul className="grid grid-cols-2 items-start gap-6">
           <li>
             <Link
               href="/"

@@ -211,6 +211,9 @@
   background-color: var(--color-accent-950);
 }
 
+.transparent-bg-primary-500 {
+  background-color: rgb(1, 0, 54, 0.8);
+}
 /* Dark mode */
 /* .dark-text-primary-50 {
   color: var(--color-primary-50);

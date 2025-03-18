@@ -62,8 +62,8 @@ export default function HomeContent({ profileImage }) {
   return (
     <>
       {/* Landing Content */}
-      <section className="grid grid-cols-1 min-[601px]:grid-cols-[40%_60%] text-start">
-        <div className="order-2 mt-4 z-30 flex flex-col justify-center min-[601px]:mt-20 min-[601px]:order-1 md:gap-8">
+      <section className="grid grid-cols-1 min-[601px]:grid-cols-[40%_60%] text-start mt-24">
+        <div className="order-2 mt-4 flex flex-col justify-center min-[601px]:mt-20 min-[601px]:order-1 md:gap-8">
           {/* Animated Heading */}
           <motion.p
             className="mt-6 text-xl min-[601px]:text-2xl uppercase"

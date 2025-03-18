@@ -5,7 +5,7 @@ import DarkModeSwitch from "./DarkModeSwtch";
 
 function Header() {
   return (
-    <header className="border-b border-primary-300 mx-6 md:mx-12 pb-2 z-20">
+    <header className="fixed w-11/12 transparent-bg-primary-500 border-b border-primary-300 mx-6 md:mx-12 pb-2 z-20">
       <div className="flex justify-between gap-6 items-center mt-4 ">
         <MobileMenu />
         <Logo />
