@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider attribute="class" defaultTheme="system">
           <Header />
           <div className="flex-1 flex flex-col w-full h-full">
-            <main className="flex-grow flex flex-col justify-between w-full max-w-5xl mx-6 md:mx-12">
+            <main className="flex-grow flex flex-col justify-between w-full max-w-5xl px-6 md:px-12">
               {children}
             </main>
           </div>
