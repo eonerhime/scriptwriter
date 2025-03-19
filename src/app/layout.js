@@ -43,9 +43,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
-/*
- To do:
- 1. fix margin on the body/ header
- 2. Floating menu when scrolling
- */

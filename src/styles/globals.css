@@ -4,6 +4,12 @@
   /* Base Colour */
   --color-navy-500: #010036;
 
+  /* Dark mode */
+  --bg-primary-light: rgba(230, 230, 242, 0.8);
+  --bg-primary-dark: rgba(1, 0, 54, 0.8);
+  --background: var(--color-primary-500);
+  --foreground: var(--color-primary-50);
+
   /* Primary Colours */
   --color-primary-50: #e6e6f2;
   --color-primary-100: #cccce6;
@@ -68,6 +74,12 @@
 }
 .decoration-accent-950 {
   text-decoration-color: var(--color-accent-950);
+}
+.border-accent-950 {
+  border-color: var(--color-accent-950);
+}
+hover.border-primary-500:hover {
+  border-color: var(--color-primary-500);
 }
 
 /* Custom Text Variants */
@@ -211,28 +223,14 @@
   background-color: var(--color-accent-950);
 }
 
-.transparent-bg-primary-500 {
-  background-color: rgb(1, 0, 54, 0.8);
-}
-/* Dark mode */
-/* .dark-text-primary-50 {
+.dark .transparent-bg-primary-500 {
   color: var(--color-primary-50);
+  background-color: var(--bg-primary-dark);
 }
-.dark-bg-primary-500 {
-  background-color: var(--color-primary-500);
-} */
 
-/* @theme {
-  --color: var(--foreground);
-  --background: var(--background);
-  --dark: "class";
-} */
-
-/* @custom-variant dark (&:where(.dark, .dark *)); */
-
-:root {
-  --background: var(--color-primary-500);
-  --foreground: var(--color-primary-50);
+.transparent-bg-primary-500 {
+  color: var(--color-primary-500);
+  background-color: var(--bg-primary-light);
 }
 
 .dark body {

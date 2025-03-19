@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 function BlogList({ posts }) {
   return (
     <motion.div
-      className="mt-12 mb-12"
+      className="mt-36 mb-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

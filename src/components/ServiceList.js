@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function ServiceList({ services }) {
   return (
-    <div className="relative w-full align-middle mt-6 mb-12">
+    <div className="relative w-full align-middle mt-28 mb-12">
       {/* Background Image */}
       <div className="fixed inset-0 w-full h-full">
         <Image
@@ -47,7 +47,7 @@ function FlipCard({ service }) {
 
   return (
     <div
-      className="relative w-4/5 max-w-xs h-64 mx-auto perspective-1000 cursor-pointer mb-4"
+      className="relative w-4/5 max-w-xs h-64 mx-auto perspective-1000 cursor-pointer mb-4 border-2 border-accent-950 hover-border-primary-500 rounded-lg"
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
     >

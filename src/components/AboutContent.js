@@ -7,10 +7,10 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 function AboutContent({ profileImage }) {
   return (
-    <div className="grid grid-cols-1 gap-6 max-w-full py-8 min-[601px]:grid-cols-[40%_60%] min-[601px]:gap-12">
+    <div className="grid grid-cols-1 gap-6 max-w-full py-8 mt-24 min-[601px]:grid-cols-[40%_60%] min-[601px]:gap-12 box-border">
       {/* Profile Image */}
       <motion.div
-        className="h-full md:shrink-0 row-span-1 order-2 min-[601px]:max-w-max min-[601px]:order-1 min-[840px]:row-span-3"
+        className="h-full md:shrink-0 row-span-1 order-2 min-[601px]:max-w-max min-[601px]:order-1 min-[601px]:row-start-1 min-[601px]:row-end-3"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -26,9 +26,9 @@ function AboutContent({ profileImage }) {
       </motion.div>
 
       {/* Animated Heading */}
-      <div className="text-start order-1 mt-4 min-[601px]:text-start min-[601px]:mt-12 min-[601px]:order-2">
+      <div className="text-center order-1 mt-4 min-[601px]:text-start min-[601px]:mt-20 min-[601px]:order-2">
         <motion.h1
-          className="text-center text-xl font-bold dark:text-primary-50 uppercase min-[840px]:text-2xl"
+          className="text-xl font-bold dark:text-primary-50 uppercase min-[840px]:text-2xl"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -37,7 +37,7 @@ function AboutContent({ profileImage }) {
         </motion.h1>
 
         <motion.p
-          className="mt-4 dark:text-primary-50 text-base leading-relaxed"
+          className="mt-4 dark:text-primary-50 text-base leading-relaxed pr-6"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -47,8 +47,11 @@ function AboutContent({ profileImage }) {
           </span>{" "}
           is a passionate writer with almost 2 decades of writing experience...
         </motion.p>
+      </div>
 
-        <div className="order-3 text-center min-[601px]:col-span-2 min-[840px]:col-span-1">
+      <div className="order-3 flex flex-col text-center min-[601px]:justify-start min-[601px]:text-start">
+        {/* Likes & Hobbies */}
+        <div className="mt-6 min-[601px]:col-span-2 min-[840px]:col-span-1 pr-6">
           <motion.p
             className="dark:text-primary-200 col-span-2"
             initial={{ opacity: 0 }}
@@ -60,8 +63,9 @@ function AboutContent({ profileImage }) {
           </motion.p>
         </div>
 
+        {/* Social links flex gap-6 pt-6 dark:text-primary-50*/}
         <motion.div
-          className="flex justify-start space-x-4 dark:text-primary-50"
+          className="flex gap-6 mt-6 justify-center min-[601px]:justify-start"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
@@ -70,7 +74,7 @@ function AboutContent({ profileImage }) {
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-accent-700 dark:hover:text-accent-400 text-2xl"
+            className="hover-text-accent-700 dark:hover-text-accent-700 text-2xl"
           >
             <FaFacebook />
           </Link>
@@ -78,7 +82,7 @@ function AboutContent({ profileImage }) {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-accent-700 dark:hover:text-accent-400 text-2xl"
+            className="hover-text-accent-700 dark:hover-text-accent-700 text-2xl"
           >
             <FaInstagram />
           </Link>
@@ -86,7 +90,7 @@ function AboutContent({ profileImage }) {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-accent-700 dark:hover:text-accent-400 text-2xl"
+            className="hover-text-accent-700 dark:hover-text-accent-700 text-2xl"
           >
             <FaLinkedin />
           </Link>

@@ -56,7 +56,7 @@ export default function Gallery({ galleryImages }) {
 
   return (
     <motion.div
-      className="mt-12 mb-12 text-start"
+      className="mt-36 mb-12 text-start"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -82,7 +82,7 @@ export default function Gallery({ galleryImages }) {
 
       {/* Gallery Grid */}
       <motion.div
-        className="grid grid-cols-1 auto-rows-auto gap-12 w-full h-full mt-12 min-[601px]:grid-cols-2 min-[840px]:grid-cols-3"
+        className="grid max-w-[1200px] mx-auto px-4 grid-cols-1 auto-rows-auto gap-12 w-full h-full mt-12 min-[601px]:grid-cols-2 min-[840px]:grid-cols-3"
         initial="hidden"
         animate="visible"
         variants={{

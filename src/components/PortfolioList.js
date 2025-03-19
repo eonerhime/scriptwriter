@@ -6,7 +6,7 @@ import Image from "next/image";
 function PortfolioList({ portfolio }) {
   return (
     <motion.div
-      className="mt-12 mb-12"
+      className="mt-36 mb-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -32,7 +32,7 @@ function PortfolioList({ portfolio }) {
 
       {/* Portfolio Grid with Staggered Animation */}
       <motion.div
-        className="grid grid-cols-[1fr] auto-rows-auto justify-between gap-12 text-center w-full h-full mt-12 min-[601px]:grid-cols-[1fr_1fr] min-[840px]:grid-cols-[1fr_1fr_1fr]"
+        className="grid max-w-[1200px] mx-auto grid-cols-[1fr] auto-rows-auto justify-between gap-12 text-center px-4 w-full h-full mt-12 min-[601px]:grid-cols-[1fr_1fr] min-[840px]:grid-cols-[1fr_1fr_1fr]"
         initial="hidden"
         animate="visible"
         variants={{
@@ -58,12 +58,13 @@ function PortfolioList({ portfolio }) {
             transition={{ duration: 0.3 }}
           >
             <Image
-              width={400}
-              height={400}
+              width={200}
+              height={200}
               quality={80}
               loading="lazy"
               src={poster.image}
               alt="Portfolio Image"
+              className="w-[100%] h-auto"
             />
           </motion.div>
         ))}

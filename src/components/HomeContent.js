@@ -138,7 +138,7 @@ export default function HomeContent({ profileImage }) {
       <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* About Section */}
-      <motion.section className="container relative dark:bg-primary-50 gap-8 dark:bg-primary-900 dark:text-primary-50 grid grid-cols-1 md:grid-cols-2">
+      <motion.section className="relative w-full grid-cols-1 gap-8 dark:bg-primary-50 dark:bg-primary-900 dark:text-primary-50 grid md:grid-cols-2">
         <div className="order-1 md:mt-24 min-[601px]:order-1">
           <motion.div
             initial={{ x: -50, opacity: 0 }}
@@ -157,7 +157,7 @@ export default function HomeContent({ profileImage }) {
           </motion.div>
         </div>
 
-        <div className="clear md:absolute left-0 bottom-14 order-3 mt-0 text-sm text-start min-[601px]:order-3 min-[840px]:col-span-1">
+        <div className="clear md:absolute left-0 bottom-18 order-3 mt-0 text-sm text-start min-[601px]:order-3 min-[840px]:col-span-1">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -197,7 +197,7 @@ export default function HomeContent({ profileImage }) {
       <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* Services Section */}
-      <motion.section className="container">
+      <motion.section className="w-full">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Services
         </h2>
@@ -253,7 +253,7 @@ export default function HomeContent({ profileImage }) {
       <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* Portfolio Section */}
-      <motion.section className="container">
+      <motion.section className="w-full">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Portfolio
         </h2>
@@ -296,7 +296,7 @@ export default function HomeContent({ profileImage }) {
       <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
 
       {/* Testimonials Section */}
-      <motion.section className="container relative text-start">
+      <motion.section className="w-full relative text-start">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           Testimonials
         </h2>
