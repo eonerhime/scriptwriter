@@ -135,10 +135,10 @@ export default function HomeContent({ profileImage }) {
       </section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
+      <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* About Section */}
-      <motion.section className="relative w-full grid-cols-1 gap-8 dark:bg-primary-50 dark:bg-primary-900 dark:text-primary-50 grid md:grid-cols-2">
+      <motion.section className="relative w-full grid-cols-1 gap-8 dark:bg-primary-50 dark:bg-primary-900 dark:text-primary-50 grid md:grid-cols-2 min-[601px]:pr-2">
         <div className="order-1 md:mt-24 min-[601px]:order-1">
           <motion.div
             initial={{ x: -50, opacity: 0 }}
@@ -194,10 +194,10 @@ export default function HomeContent({ profileImage }) {
       </motion.section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
+      <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* Services Section */}
-      <motion.section className="w-full">
+      <motion.section className="w-full min-[601px]:pr-2">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Services
         </h2>
@@ -250,10 +250,10 @@ export default function HomeContent({ profileImage }) {
       </motion.section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
+      <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* Portfolio Section */}
-      <motion.section className="w-full">
+      <motion.section className="w-full min-[601px]:pr-2">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Portfolio
         </h2>
@@ -293,10 +293,10 @@ export default function HomeContent({ profileImage }) {
       </motion.section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
+      <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* Testimonials Section */}
-      <motion.section className="w-full relative text-start">
+      <motion.section className="w-full relative text-start min-[601px]:pr-2">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           Testimonials
         </h2>
@@ -350,11 +350,11 @@ export default function HomeContent({ profileImage }) {
       </motion.section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
+      <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* Blog Section */}
       <motion.section
-        className="max-w-7xl text-start cursor-pointer"
+        className="max-w-7xl text-start cursor-pointer min-[601px]:pr-2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -405,10 +405,10 @@ export default function HomeContent({ profileImage }) {
       </motion.section>
 
       {/* Section Separator */}
-      <div className="w-full opacity-25 my-8 border-t border-primary-100 mt-15 mb-15"></div>
+      <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* Contact Section */}
-      <section className="w-full md:w-4/5 max-w-3xl mb-10 text-start">
+      <section className="w-full md:w-4/5 max-w-3xl mb-10 text-start min-[601px]:pr-2">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           Get in Touch
         </h2>
