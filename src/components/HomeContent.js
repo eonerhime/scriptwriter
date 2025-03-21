@@ -66,7 +66,7 @@ export default function HomeContent({ profileImage }) {
         <div className="order-2 mt-4 flex flex-col justify-center min-[601px]:mt-20 min-[601px]:order-1 md:gap-8">
           {/* Animated Heading */}
           <motion.p
-            className="mt-6 text-xl min-[601px]:text-2xl uppercase"
+            className="mt-6 text-xl text-center min-[601px]:text-start min-[601px]:text-2xl uppercase"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -77,7 +77,7 @@ export default function HomeContent({ profileImage }) {
 
           {/* Animated Description */}
           <motion.p
-            className="text-sm mt-4 pr-4 md:pr-0"
+            className="text-sm mt-4 text-center min-[601px]:text-start md:pr-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -92,7 +92,7 @@ export default function HomeContent({ profileImage }) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             whileHover={{ scale: 1.05 }}
-            className="mt-6"
+            className="mt-6 mx-auto min-[601px]:mx-0"
           >
             <Button btnStyle={`${btnStyle} flex gap-2 w-auto px-6 py-3`}>
               <Link href="/contact">Let&apos;s Talk</Link>
@@ -146,10 +146,10 @@ export default function HomeContent({ profileImage }) {
             transition={{ duration: 0.8 }}
             className=""
           >
-            <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
+            <h2 className="text-xl uppercase font-semibold text-center min-[601px]:text-start min-[601px]:text-2xl">
               About Me
             </h2>
-            <p className="mt-4 text-sm">
+            <p className="mt-4 text-sm text-center min-[601px]:text-start ">
               With a passion for storytelling, I craft engaging narratives for
               films, TV series, and blogs. I turn ideas into captivating
               stories.
@@ -157,7 +157,7 @@ export default function HomeContent({ profileImage }) {
           </motion.div>
         </div>
 
-        <div className="clear md:absolute left-0 bottom-18 order-3 mt-0 text-sm text-start min-[601px]:order-3 min-[840px]:col-span-1">
+        <div className="clear md:absolute left-0 bottom-18 order-3 mt-0 text-sm text-center min-[601px]:text-start min-[601px]:order-3 min-[840px]:col-span-1">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -166,7 +166,7 @@ export default function HomeContent({ profileImage }) {
             📌 Scriptwriting | Blogging | Copywriting
           </motion.p>
 
-          <div className="flex justify-start">
+          <div className="flex justify-center min-[600px]:justify-start">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -197,7 +197,7 @@ export default function HomeContent({ profileImage }) {
       <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* Services Section */}
-      <motion.section className="w-full min-[601px]:pr-2">
+      <motion.section className="w-full text-center min-[601px]:text-start min-[601px]:pr-2">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Services
         </h2>
@@ -230,7 +230,7 @@ export default function HomeContent({ profileImage }) {
               arcs. Ready to transform your vision into a masterpiece?
             </p>
 
-            <div className="flex justify-start">
+            <div className="flex justify-center min-[601px]justify-start">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -253,7 +253,7 @@ export default function HomeContent({ profileImage }) {
       <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* Portfolio Section */}
-      <motion.section className="w-full min-[601px]:pr-2">
+      <motion.section className="w-full text-center min-[601px]:text-start min-[601px]:pr-2">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
           My Portfolio
         </h2>
@@ -273,7 +273,7 @@ export default function HomeContent({ profileImage }) {
               🌟
             </p>
 
-            <div className="flex justify-start">
+            <div className="flex justify-center min-[601px]justify-start">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -297,7 +297,7 @@ export default function HomeContent({ profileImage }) {
 
       {/* Testimonials Section */}
       <motion.section className="w-full relative text-start min-[601px]:pr-2">
-        <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
+        <h2 className="text-xl uppercase font-semibold text-center min-[601px]:text-start min-[601px]:text-2xl">
           Testimonials
         </h2>
 
@@ -354,7 +354,7 @@ export default function HomeContent({ profileImage }) {
 
       {/* Blog Section */}
       <motion.section
-        className="max-w-7xl text-start cursor-pointer min-[601px]:pr-2"
+        className="max-w-7xl cursor-pointer text-center min-[601px]:text-start min-[601px]:pr-2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -409,7 +409,7 @@ export default function HomeContent({ profileImage }) {
 
       {/* Contact Section */}
       <section className="w-full md:w-4/5 max-w-3xl mb-10 text-start min-[601px]:pr-2">
-        <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
+        <h2 className="text-xl uppercase font-semibold text-center min-[601px]:text-start min-[601px]:text-2xl">
           Get in Touch
         </h2>
         <form className="mt-4 text-primary-50 space-y-4">

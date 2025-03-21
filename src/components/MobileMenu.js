@@ -57,7 +57,7 @@ export default function MobileMenu() {
             <Link
               href="/services"
               onClick={() => setMenuOpen(false)}
-              className="hover:text-accent-700 group  transition-all duration-300 ease-in-out"
+              className="hover:text-accent-700 group transition-all duration-300 ease-in-out"
             >
               <span className="bg-left-bottom bg-gradient-to-r from-accent-700 to-accent-700 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                 Services
