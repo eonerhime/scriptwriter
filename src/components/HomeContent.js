@@ -230,7 +230,7 @@ export default function HomeContent({ profileImage }) {
               arcs. Ready to transform your vision into a masterpiece?
             </p>
 
-            <div className="flex justify-center min-[601px]justify-start">
+            <div className="flex justify-center min-[601px]:justify-start">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -273,7 +273,7 @@ export default function HomeContent({ profileImage }) {
               🌟
             </p>
 
-            <div className="flex justify-center min-[601px]justify-start">
+            <div className="flex justify-center min-[601px]:justify-start">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
