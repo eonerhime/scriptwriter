@@ -408,7 +408,7 @@ export default function HomeContent({ profileImage }) {
       <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* Contact Section */}
-      <section className="w-full md:w-4/5 max-w-3xl mb-10 text-start min-[601px]:pr-2">
+      <section className="flex flex-col mx-auto items-center justify-center w-full md:w-4/5 max-w-3xl mb-10  min-[601px]:pr-2">
         <h2 className="text-xl uppercase font-semibold text-center min-[601px]:text-start min-[601px]:text-2xl">
           Get in Touch
         </h2>
