@@ -3,43 +3,68 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaQuoteLeft, FaQuoteRight, FaStar } from "react-icons/fa";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
-const testimonials = [
-  {
-    text: "Ifeoma is a masterful storyteller with a unique voice and vision. Her scripts are meticulously crafted, with complex characters, razor-sharp dialogue, and narratives that captivate and inspire. I can't wait to see what she comes up with next.",
-    name: "Iyke-u-Anthoni – Nollywood Director",
-    rating: 5,
-  },
-  {
-    text: "Ifeoma is a gifted screenwriter with a unique voice. She has crafted exceptional scripts for me, including Indigo Glass, Akpos and Company, Mr. Wonderful, and Scarred. Her creativity and dedication make her a top choice for any screenplay project.",
-    name: "Mike Nliam –  Veteran Nollywood producer",
-    rating: 5,
-  },
-  {
-    text: "Ifeoma's insightful feedback pushed me to refine my script in ways I hadn't considered. Her detailed notes were both actionable and encouraging, making my story stronger. If you need a screenwriter who truly understands structure and character, she's an invaluable resource.",
-    name: "Oneme Ofurhie – Digital Animator, Producer USA",
-    rating: 5,
-  },
-  {
-    text: "Ifeoma Onerhime masterfully adapted my novel Burning Hurt into a compelling screenplay. Her passion, creativity, and keen storytelling brought my characters to life in unexpected ways. Professional, dedicated, and a joy to work wit — I highly recommend her for capturing emotion and depth in any script.",
-    name: "-	Amb. Dr. Unyime-Ivy King – Author, Burning Hurt",
-    rating: 5,
-  },
-  {
-    text: "Ifeoma Onerhime transformed my deeply personal experiences into a powerful script with empathy and skill. Her warm, attentive nature made sharing my story effortless, and she captured its essence even better than I could. I have no regrets working with her and will do so again. If you need a screenwriter who truly listens and understands, I highly recommend Ifeoma.",
-    name: "Misan Udogie – Author,  Executive Producer 'My Name is Misan'",
-    rating: 5,
-  },
-];
-
+// Define button styles
 const btnStyle =
-  "w-auto px-6 py-3 border-2 border-primary-50 border-style:solid rounded-md uppercase font-bold text-center cursor-pointer hover:bg-primary-50 hover:text-primary-900 transition";
+  "w-auto px-6 py-3 border-2 border-primary-50 border-style:solid rounded-md uppercase font-bold text-center cursor-pointer hover:bg-accent-950 transition-color";
 
-export default function HomeContent({ profileImage }) {
+export default function HomeContent({ home, testimonials, blog }) {
   const [index, setIndex] = useState(0);
+  const router = useRouter();
+
+  // Destructure the home content
+  const {
+    // Landing/Cover content
+    coverHeader,
+    coverSubHeader,
+    coverImage,
+
+    // About section
+    aboutTitle,
+    aboutRider,
+    aboutImage,
+    aboutHobbies,
+
+    // Services section
+    servicesOffer,
+    servicesOverview,
+    servicesTitle,
+
+    // Portfolio section
+    portfolioCTA,
+    portfolioSummary,
+    portfolioTitle,
+  } = home[0];
+
+  // Destructure content for the sections
+  const landingContent = {
+    header: coverHeader,
+    subHeader: coverSubHeader,
+    image: coverImage,
+  };
+
+  const aboutSection = {
+    title: aboutTitle,
+    rider: aboutRider,
+    image: aboutImage,
+    hobbies: aboutHobbies,
+  };
+
+  const servicesSection = {
+    offer: servicesOffer,
+    overview: servicesOverview,
+    title: servicesTitle,
+  };
+
+  const portfolioSection = {
+    title: portfolioTitle,
+    cta: portfolioCTA,
+    summary: portfolioSummary,
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,6 +84,17 @@ export default function HomeContent({ profileImage }) {
     );
   };
 
+  // Function to handle blog click and store in local storage
+  // It also prevent redownloading the blog data
+  const handleBlogClick = (blog) => {
+    // This is a workaround for the server action not being able to access local storage directly
+    // Store the selected blog in local storage for later use
+    localStorage.setItem("selectedBlog", JSON.stringify(blog[0]));
+
+    // Redirect to the blog creation page
+    router.push(`/blog/${blog[0].id}`);
+  };
+
   return (
     <>
       {/* Landing Content */}
@@ -71,8 +107,16 @@ export default function HomeContent({ profileImage }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <strong>Let&apos;s</strong> <em>Create</em>{" "}
-            <strong>Something</strong> <em>Great</em> <strong>Together</strong>
+            {landingContent.header.split(" ").map((word, index) => {
+              // Apply different styles based on index
+              if (index === 0 || index === 2 || index === 4) {
+                return <strong key={index}>{word} </strong>;
+              } else if (index === 1 || index === 3) {
+                return <em key={index}>{word} </em>;
+              } else {
+                return <span key={index}>{word} </span>;
+              }
+            })}
           </motion.p>
 
           {/* Animated Description */}
@@ -82,18 +126,11 @@ export default function HomeContent({ profileImage }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            I am a script writer, author and content writer. I bring to life
-            your ideas for your films, TV and documentary.
+            {landingContent.subHeader}
           </motion.p>
 
           {/* Animated Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            className="mt-6 mx-auto min-[601px]:mx-0"
-          >
+          <div className="mt-6 mx-auto min-[601px]:mx-0">
             <Button btnStyle={`${btnStyle} flex gap-2 w-auto px-6 py-3`}>
               <Link href="/contact">Let&apos;s Talk</Link>
               <span>
@@ -113,7 +150,7 @@ export default function HomeContent({ profileImage }) {
                 </svg>
               </span>
             </Button>
-          </motion.div>
+          </div>
         </div>
 
         {/* Animated Profile Image */}
@@ -125,7 +162,7 @@ export default function HomeContent({ profileImage }) {
         >
           <Image
             quality={80}
-            src={profileImage}
+            src={landingContent.image}
             alt="Ifeoma Emo-Onerhime"
             width={600}
             height={600}
@@ -147,12 +184,10 @@ export default function HomeContent({ profileImage }) {
             className=""
           >
             <h2 className="text-xl uppercase font-semibold text-center min-[601px]:text-start min-[601px]:text-2xl">
-              About Me
+              {aboutSection.title}
             </h2>
             <p className="mt-4 text-sm text-center min-[601px]:text-start ">
-              With a passion for storytelling, I craft engaging narratives for
-              films, TV series, and blogs. I turn ideas into captivating
-              stories.
+              {aboutSection.rider}
             </p>
           </motion.div>
         </div>
@@ -163,7 +198,14 @@ export default function HomeContent({ profileImage }) {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            📌 Scriptwriting | Blogging | Copywriting
+            📌{" "}
+            {aboutSection.hobbies.split(", ").map((hobby, index) => {
+              if (index === 0 || index === 1) {
+                return `${hobby} | `;
+              } else {
+                return hobby;
+              }
+            })}
           </motion.p>
 
           <div className="flex justify-center min-[600px]:justify-start">
@@ -199,7 +241,7 @@ export default function HomeContent({ profileImage }) {
       {/* Services Section */}
       <motion.section className="w-full text-center min-[601px]:text-start min-[601px]:pr-2">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
-          My Services
+          {servicesSection.title}
         </h2>
         <div className="mt-8">
           <motion.div
@@ -208,26 +250,17 @@ export default function HomeContent({ profileImage }) {
             transition={{ delay: 0.2 }}
           >
             <p className="mt-2">
-              Great stories deserve great scripts! Whether it’s a film, TV
-              series, web content, or short film, I craft engaging,
-              well-structured scripts that captivate audiences and bring ideas
-              to the screen.
+              {servicesSection.overview}
               <br />
               <br />
-              ✨ What I Offer:
-              <br />
-              <br />
-              🎬 Screenwriting – From concept to polished script.
-              <br />
-              <br />
-              📝 Dialogue Perfection – Authentic and impactful conversations.{" "}
-              <br />
-              <br />
-              🎭 Character Development – Creating memorable, dynamic characters.{" "}
-              <br />
-              <br />
-              📖 Story Structuring – Ensuring strong narratives with compelling
-              arcs. Ready to transform your vision into a masterpiece?
+
+              {servicesSection.offer.map((item, index) => (
+                <React.Fragment key={index}>
+                  {item}
+                  <br />
+                  <br />
+                </React.Fragment>
+              ))}
             </p>
 
             <div className="flex justify-center min-[601px]:justify-start">
@@ -255,7 +288,7 @@ export default function HomeContent({ profileImage }) {
       {/* Portfolio Section */}
       <motion.section className="w-full text-center min-[601px]:text-start min-[601px]:pr-2">
         <h2 className="text-xl uppercase font-semibold min-[601px]:text-2xl">
-          My Portfolio
+          {portfolioSection.title}
         </h2>
         <div className="mt-8">
           <motion.div
@@ -263,14 +296,11 @@ export default function HomeContent({ profileImage }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <p className="mt-2">
-              Check out some of my recent projects. From screenplays to blog
-              posts, I bring ideas to life with engaging stories and compelling
-              narratives. 🎥 Ready to see your story come to life? <br />
-              <Link href="/contact" className="underline">
-                Let&apos;s work together!
-              </Link>{" "}
-              🌟
+            <p className="flex flex-col mt-2 gap-4">
+              {portfolioSection.summary} <br />
+              <Link href="/contact">
+                <span className="underline">Let&apos;s work together!</span> 🌟
+              </Link>
             </p>
 
             <div className="flex justify-center min-[601px]:justify-start">
@@ -316,13 +346,14 @@ export default function HomeContent({ profileImage }) {
                 {/* Quote Icons & Text */}
                 <p className="text-primary-500 italic flex items-center justify-center gap-2">
                   <FaQuoteLeft className="text-4xl" />
-                  <span>{testimonials[index].text}</span>
+                  <span>{testimonials[index].testimonial}</span>
                   <FaQuoteRight className="text-4xl" />
                 </p>
 
                 {/* Author Name */}
                 <p className="text-primary-500 mt-2 font-bold">
-                  {testimonials[index].name}
+                  {testimonials[index].author} {" - "}
+                  {testimonials[index].profile}
                 </p>
 
                 {/* Star Ratings */}
@@ -354,54 +385,54 @@ export default function HomeContent({ profileImage }) {
 
       {/* Blog Section */}
       <motion.section
-        className="max-w-7xl cursor-pointer text-center min-[601px]:text-start min-[601px]:pr-2"
+        className="max-w-7xl text-center min-[601px]:text-start min-[601px]:pr-2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <Link href="/blog">
-          <motion.h2
-            className="text-xl uppercase font-semibold min-[601px]:text-2xl"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            Latest Blog Post
-          </motion.h2>
+        <motion.h2
+          className="text-xl uppercase font-semibold min-[601px]:text-2xl"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          Latest Blog Post
+        </motion.h2>
 
+        <button onClick={() => handleBlogClick(blog)}>
           <motion.div
-            className="mt-8 grid grid-cols-1 md:grid-cols-[40%_60%] gap-6 md:gap-4 items-center"
+            className="cursor-pointer mt-8 grid grid-cols-1 md:grid-cols-[40%_60%] gap-6 md:gap-4 items-center"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             {/* Image second on mobile, first on desktop */}
-            <div className="w-full order-2 md:order-1">
-              <img
-                src="https://picsum.photos/id/60/400/300"
-                alt="Blog post image"
-                className="w-full h-full object-cover rounded-lg"
+            <div className="w-full order-2 md:order-1 row-span-2">
+              <Image
+                src={blog[0].image}
+                alt={blog[0].title}
+                width={600}
+                height={600}
+                className="!w-full !h-full object-cover rounded-lg"
               />
             </div>
 
             {/* Text Content (Title + Excerpt) */}
-            <div className="order-1 md:order-2 flex flex-col h-full space-y-3 md:justify-start">
+            <div className="order-1 md:order-2 flex flex-col h-full space-y-3 md:justify-start md:text-start">
               <h2 className="text-2xl font-bold text-accent-950">
-                The Art of Writing Engaging Dialogues
+                {blog[0].title}
               </h2>
               <div className="md:self-center">
-                <p>
-                  Felis nascetur. Semper ridiculus. Vehicula. Pellentesque.
-                  Feugiat. Ex senectus. Consequat. Dolor. Lacinia.Felis
-                  nascetur. Semper ridiculus. Vehicula. Pellentesque. Feugiat.
-                  Ex senectus. Consequat. Dolor. Lacinia.Felis nascetur. Semper
-                  ridiculus. Vehicula. Pellentesque. Feugiat. Ex senectus.
-                  Consequat. Dolor. Lacinia.
-                </p>
+                <p>{blog[0].excerpt}</p>
               </div>
             </div>
+            <div className="order-3 md:order-2 mt-4">
+              <p className="w-fit border-2 border-primary-50 p-2 rounded-md text-start cursor-pointer">
+                Read Full Post...
+              </p>
+            </div>
           </motion.div>
-        </Link>
+        </button>
       </motion.section>
 
       {/* Section Separator */}

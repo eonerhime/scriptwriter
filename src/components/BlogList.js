@@ -1,11 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-function BlogList({ posts }) {
+function BlogList({ blogList }) {
+  const router = useRouter();
+
+  // Function to handle blog click and store in local storage
+  // It also prevent redownloading the blog data
+  const handleBlogClick = (blog) => {
+    // This is a workaround for the server action not being able to access local storage directly
+    // Store the selected blog in local storage for later use
+    localStorage.setItem("selectedBlog", JSON.stringify(blog));
+
+    // Redirect to the blog creation page
+    router.push(`/blog/${blog.id}`);
+  };
+
   return (
     <motion.div
-      className="mt-36 mb-12"
+      className="mt-36 mb-12 "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -42,24 +57,38 @@ function BlogList({ posts }) {
           },
         }}
       >
-        {posts.map((post, index) => (
-          <motion.div
-            key={index}
-            className="flex flex-col gap-4"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.5 }}
+        {blogList.map((blog, index) => (
+          <button
+            key={blog?.id}
+            onClick={() => handleBlogClick(blog)}
+            className="border-1 p-4 rounded-lg border-accent-950 cursor-pointer items-start"
           >
-            <img src={post.image} alt="image" className="rounded-lg" />
-            <h2 className="uppercase font-bold">{post.title}</h2>
-            <p>
-              Felis nascetur. Semper ridiculus. Vehicula. Pellentesque. Feugiat.
-              Ex senectus. Consequat. Dolor. Lacinia.
-            </p>
-          </motion.div>
+            <motion.div
+              key={index}
+              className="flex flex-col gap-4 cursor-pointer"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex flex-col gap-3 mb-0">
+                <div className="w-full h-64 relative">
+                  <Image
+                    src={blog.image}
+                    sizes=""
+                    alt="Post Image"
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-md"
+                  />
+                </div>
+              </div>
+              <h2 className="uppercase font-bold">{blog.title}</h2>
+              <p>{blog.excerpt}</p>
+            </motion.div>
+          </button>
         ))}
       </motion.div>
     </motion.div>
