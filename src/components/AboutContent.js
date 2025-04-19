@@ -5,7 +5,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-function AboutContent({ profileImage }) {
+function AboutContent({ abouContentt }) {
+  // Destructure about page content
+  const { header, about, image, hobbies } = abouContentt[0];
   return (
     <div className="grid grid-cols-1 gap-6 max-w-full py-8 mt-24 min-[601px]:grid-cols-[40%_60%] min-[601px]:gap-12 box-border">
       {/* Profile Image */}
@@ -17,7 +19,7 @@ function AboutContent({ profileImage }) {
       >
         <Image
           quality={80}
-          src={profileImage}
+          src={image}
           alt="Ifeoma Emo-Onerhime"
           width={500}
           height={500}
@@ -33,7 +35,7 @@ function AboutContent({ profileImage }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          About Scriptwriter
+          {header}
         </motion.h1>
 
         <motion.p
@@ -42,10 +44,15 @@ function AboutContent({ profileImage }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <span className="font-semibold text-accent-950">
-            Ifeoma Emo-Onerhime
-          </span>{" "}
-          is a passionate writer with almost 2 decades of writing experience...
+          {about.split(/\s+/).map((word, index) =>
+            index < 2 ? (
+              <span key={index} className="font-semibold text-accent-950">
+                {word}{" "}
+              </span>
+            ) : (
+              <span key={index}>{word} </span>
+            )
+          )}
         </motion.p>
       </div>
 
@@ -58,8 +65,14 @@ function AboutContent({ profileImage }) {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            🍫 Lover of chocolates | 📖 Avid reader | 🍳 Cooking enthusiast | 📱
-            Social media explorer
+            📌{" "}
+            {hobbies.split(", ").map((hobby, index) => {
+              if (index === 0 || index === 1) {
+                return `${hobby} | `;
+              } else {
+                return hobby;
+              }
+            })}
           </motion.p>
         </div>
 
