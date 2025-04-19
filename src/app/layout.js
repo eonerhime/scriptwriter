@@ -23,7 +23,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${montserrat.className} antialiased min-w-full min-h-screen flex flex-col relative box-border`}
       >
