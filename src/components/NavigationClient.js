@@ -14,7 +14,7 @@ export default function NavigationClient() {
         { name: "Services", path: "/services" },
         { name: "Gallery", path: "/gallery" },
         { name: "Portfolio", path: "/portfolio" },
-        { name: "Blog", path: "/blog" },
+        { name: "Blog", path: "/blogs" },
         { name: "Contact", path: "/contact" },
       ].map(({ name, path }) => (
         <li key={path}>
