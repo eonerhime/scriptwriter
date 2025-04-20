@@ -5,6 +5,26 @@ import { useState } from "react";
 import bgImage from "../../public/wd2.jpg";
 import Image from "next/image";
 
+import {
+  TvIcon,
+  FilmIcon,
+  PencilIcon,
+  AcademicCapIcon,
+  PencilSquareIcon,
+} from "@heroicons/react/24/outline";
+
+const servicesIcons = [
+  <TvIcon className="h-12 w-12 text-primary-50" />,
+
+  <FilmIcon className="h-12 w-12 text-primary-50" />,
+
+  <PencilIcon className="h-12 w-12 text-primary-50" />,
+
+  <AcademicCapIcon className="h-12 w-12 text-primary-50" />,
+
+  <PencilSquareIcon className="h-12 w-12 text-primary-50" />,
+];
+
 export default function ServiceList({ services }) {
   return (
     <div className="relative w-full align-middle mt-28 mb-12">
@@ -34,7 +54,7 @@ export default function ServiceList({ services }) {
       <div className="relative grid grid-cols-1 auto-rows-auto gap-6 text-center mt-8 min-[601px]:grid-cols-2 min-[840px]:grid-cols-3">
         {/* flex flex-col items-center */}
         {services.map((service, index) => (
-          <FlipCard key={index} service={service} />
+          <FlipCard key={index} service={service} icon={servicesIcons[index]} />
         ))}
       </div>
     </div>
@@ -42,7 +62,7 @@ export default function ServiceList({ services }) {
 }
 
 // Flip Card Component
-function FlipCard({ service }) {
+function FlipCard({ service, icon }) {
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -58,8 +78,8 @@ function FlipCard({ service }) {
       >
         {/* Front Side */}
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-primary-500 text-primary-50 rounded-lg">
-          <div className="text-4xl">{service.icon}</div>
-          <h2 className="mt-6 uppercase font-bold">{service.title}</h2>
+          <div className="text-4xl">{icon}</div>
+          <h2 className="mt-6 uppercase font-bold">{service.serviceOffer}</h2>
         </div>
 
         {/* Back Side */}
@@ -69,10 +89,7 @@ function FlipCard({ service }) {
           animate={{ opacity: flipped ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <p>
-            Felis nascetur. Semper ridiculus. Vehicula. Pellentesque. Feugiat.
-            Ex senectus. Consequat. Dolor. Lacinia.
-          </p>
+          {service.serviceDetails}
         </motion.div>
       </motion.div>
     </div>
