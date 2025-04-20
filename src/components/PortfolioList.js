@@ -66,6 +66,9 @@ function PortfolioList({ portfolio }) {
               alt="Portfolio Image"
               className="w-[100%] h-auto"
             />
+            <p className="pt-4">
+              {poster.description !== null && poster.description}
+            </p>
           </motion.div>
         ))}
       </motion.div>
