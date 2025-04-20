@@ -10,9 +10,9 @@ export default function Gallery({ galleryImages }) {
   const [currentPage, setCurrentPage] = useState(1);
   const imagesPerPage = 9;
 
-  const openModal = (index) => {
-    setCurrentIndex(index);
-    setSelectedImage(galleryImages[index].img);
+  const openModal = (id) => {
+    setCurrentIndex(id - 1);
+    setSelectedImage(galleryImages[id - 1].image);
   };
 
   const closeModal = () => {
@@ -23,14 +23,14 @@ export default function Gallery({ galleryImages }) {
   const showNext = () => {
     if (currentIndex !== null && currentIndex < galleryImages.length - 1) {
       setCurrentIndex(currentIndex + 1);
-      setSelectedImage(galleryImages[currentIndex + 1].img);
+      setSelectedImage(galleryImages[currentIndex + 1].image);
     }
   };
 
   const showPrev = () => {
     if (currentIndex !== null && currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
-      setSelectedImage(galleryImages[currentIndex - 1].img);
+      setSelectedImage(galleryImages[currentIndex - 1].image);
     }
   };
 
@@ -93,21 +93,24 @@ export default function Gallery({ galleryImages }) {
           },
         }}
       >
-        {paginatedImages.map((gal, index) => (
+        {paginatedImages.map((item) => (
           <motion.div
-            key={index}
+            key={item.id}
             className="cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            onClick={() => openModal(index)}
+            onClick={() => openModal(item.id)}
           >
             <Image
-              src={gal.img}
-              alt={`Gallery ${index}`}
+              src={item.image}
+              alt={`Gallery ${item.image}`}
               width={400}
               height={300}
               className="w-full h-[250px] object-cover rounded-lg"
             />
+            <p className="pt-4">
+              {item.description !== null && item.description}
+            </p>
           </motion.div>
         ))}
       </motion.div>
@@ -169,7 +172,7 @@ export default function Gallery({ galleryImages }) {
                 alt="Selected"
                 width={400}
                 height={300}
-                className="rounded-lg"
+                className="w-full h-[400px] object-cover rounded-lg"
               />
 
               {/* Navigation Buttons */}
