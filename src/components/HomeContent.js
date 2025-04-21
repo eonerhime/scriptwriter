@@ -72,7 +72,7 @@ export default function HomeContent({ home, testimonials, blog }) {
     }, 5000); // Auto-scroll every 5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   const nextTestimonial = () => {
     setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -231,7 +231,14 @@ export default function HomeContent({ home, testimonials, blog }) {
           className="order-2 mb-0 overflow-hidden h-[200px] min-[601px]:order-2 md:h-[400px]"
           //  md:mt-16 md:mb-16
         >
-          <img src="/about-me.jpg" alt="About" className="w-max" />
+          <Image
+            quality={80}
+            src={aboutSection.image}
+            alt={aboutSection.image}
+            width={600}
+            height={600}
+            className="h-full w-fit max-w-[100%] object-cover overflow-visible"
+          />
         </motion.div>
       </motion.section>
 

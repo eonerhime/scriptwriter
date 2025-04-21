@@ -14,15 +14,21 @@ import {
 } from "@heroicons/react/24/outline";
 
 const servicesIcons = [
-  <TvIcon className="h-12 w-12 text-primary-50" />,
+  <TvIcon key="TvIcon" className="h-12 w-12 text-primary-50" />,
 
-  <FilmIcon className="h-12 w-12 text-primary-50" />,
+  <FilmIcon key="FilmIcon" className="h-12 w-12 text-primary-50" />,
 
-  <PencilIcon className="h-12 w-12 text-primary-50" />,
+  <PencilIcon key="PencilIcon" className="h-12 w-12 text-primary-50" />,
 
-  <AcademicCapIcon className="h-12 w-12 text-primary-50" />,
+  <AcademicCapIcon
+    key="AcademicCapIcon"
+    className="h-12 w-12 text-primary-50"
+  />,
 
-  <PencilSquareIcon className="h-12 w-12 text-primary-50" />,
+  <PencilSquareIcon
+    key="PencilSquareIcon"
+    className="h-12 w-12 text-primary-50"
+  />,
 ];
 
 export default function ServiceList({ services }) {
