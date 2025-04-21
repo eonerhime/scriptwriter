@@ -1,6 +1,6 @@
 "use server";
 
-import { supabase, validateSupabaseConnection } from "./supabase";
+import supabase, { validateSupabaseConnection } from "./supabase";
 
 /*
   // Set filter condition based on slug
@@ -73,3 +73,19 @@ export async function getLatestBlog() {
 
   return data;
 }
+
+// Test function
+async function fetchData() {
+  const data = await getContent("about", {
+    value: "id",
+    status: true,
+  });
+  if (!data) {
+    console.log("No data found");
+    return;
+  }
+
+  console.log("FETCHED DATA", data);
+}
+
+// fetchData();

@@ -5,7 +5,7 @@ import { getContent } from "@/lib/data-services";
 export const metadata = {
   title: "About | Ifeoma Emo-Onerhime",
   description:
-    "Information about professional scriptwriting services by Ifeoma Emo-Onerhime",
+    "Information about professional scriptwriting portfolio and services by Ifeoma Emo-Onerhime",
   keywords: [
     "scriptwriter",
     "Ifeoma Emo-Onerhime",
