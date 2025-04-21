@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { FaQuoteLeft, FaQuoteRight, FaStar } from "react-icons/fa";
 import Button from "./Button";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 // Define button styles
 const btnStyle =
@@ -16,7 +17,8 @@ export default function HomeContent({ home, testimonials, blog }) {
   const [index, setIndex] = useState(0);
   const router = useRouter();
 
-  // Destructure the home content
+  // Destructure the home content to get the necessary data
+  // This assumes home is an array with the first element containing the data
   const {
     // Landing/Cover content
     coverHeader,
@@ -40,32 +42,30 @@ export default function HomeContent({ home, testimonials, blog }) {
     portfolioTitle,
   } = home[0];
 
-  // Destructure content for the sections
+  // Destructure content for the respective sections
   const landingContent = {
     header: coverHeader,
     subHeader: coverSubHeader,
     image: coverImage,
   };
-
   const aboutSection = {
     title: aboutTitle,
     rider: aboutRider,
     image: aboutImage,
     hobbies: aboutHobbies,
   };
-
   const servicesSection = {
     offer: servicesOffer,
     overview: servicesOverview,
     title: servicesTitle,
   };
-
   const portfolioSection = {
     title: portfolioTitle,
     cta: portfolioCTA,
     summary: portfolioSummary,
   };
 
+  // useEffect for auto-scrolling testimonials
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -74,6 +74,8 @@ export default function HomeContent({ home, testimonials, blog }) {
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
+  // Function to view next and previous testimonials
+  // This function is called when the user clicks the "Next" or "Prev" buttons
   const nextTestimonial = () => {
     setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
@@ -93,6 +95,30 @@ export default function HomeContent({ home, testimonials, blog }) {
 
     // Redirect to the blog creation page
     router.push(`/blog/${blog[0].id}`);
+  };
+
+  // Function to handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    // Send the form data to the server or handle it as needed
+    console.log("Form submitted:", data);
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    if (res.ok) {
+      toast.success("Message sent successfully! 📬");
+      e.target.reset(); // clear form
+    } else {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -450,22 +476,31 @@ export default function HomeContent({ home, testimonials, blog }) {
         <h2 className="text-xl uppercase font-semibold text-center min-[601px]:text-start min-[601px]:text-2xl">
           Get in Touch
         </h2>
-        <form className="mt-4 text-primary-50 space-y-4">
+        <form
+          onSubmit={handleSubmit}
+          className="mt-4 text-primary-50 space-y-4"
+        >
           <input
             type="text"
+            name="name"
             placeholder="Name"
             className="w-full p-3 bg-primary-700 rounded-md"
           />
           <input
             type="email"
+            name="email"
             placeholder="Email"
             className="w-full p-3 bg-primary-700 rounded-md"
           />
           <textarea
+            name="message"
             placeholder="Message"
             className="w-full p-3 bg-primary-700 rounded-md"
           ></textarea>
-          <button className="w-full px-6 py-3 font-bold bg-accent-950 uppercase rounded-md hover:bg-primary-700 transition cursor-pointer">
+          <button
+            type="submit"
+            className="w-full px-6 py-3 font-bold bg-accent-950 uppercase rounded-md hover:bg-primary-700 transition cursor-pointer"
+          >
             Send Message
           </button>
         </form>

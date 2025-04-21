@@ -5,6 +5,7 @@ import { Montserrat } from "next/font/google";
 import FloatingButton from "@/components/FloatingButton";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { ToastProvider } from "@/components/ToastProvider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -36,7 +37,7 @@ export default function RootLayout({ children }) {
           </div>
 
           <Footer />
-
+          <ToastProvider />
           <FloatingButton />
         </ThemeProvider>
       </body>
