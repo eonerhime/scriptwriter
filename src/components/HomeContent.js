@@ -215,8 +215,8 @@ export default function HomeContent({ home, testimonials, blog }) {
       <div className="w-[99.175%] opacity-25 border-t border-primary-100 mt-15 mb-15 " />
 
       {/* About Section */}
-      <motion.section className="relative w-full grid-cols-1 gap-8 dark:bg-primary-50 dark:bg-primary-900 dark:text-primary-50 grid md:grid-cols-2 min-[601px]:pr-2">
-        <div className="order-1 md:mt-24 min-[601px]:order-1">
+      <motion.section className="relative w-full grid-cols-1 gap-12 dark:bg-primary-50 dark:bg-primary-900 dark:text-primary-50 grid md:grid-cols-2 min-[601px]:pr-2">
+        <div className="order-1 md:mt-24 min-[769px]:pb-12 min-[601px]:order-1">
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -232,7 +232,7 @@ export default function HomeContent({ home, testimonials, blog }) {
           </motion.div>
         </div>
 
-        <div className="clear md:absolute left-0 bottom-18 order-3 mt-0 text-sm text-center min-[601px]:text-start min-[601px]:order-3 min-[840px]:col-span-1">
+        <div className="order-3 text-sm text-center min-[601px]:text-start min-[601px]:order-3 min-[840px]:col-span-1 mt-4 min-[769px]:absolute min-[769px]:left-0 min-[769px]:bottom-0 min-[769px]:mt-0">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -268,7 +268,7 @@ export default function HomeContent({ home, testimonials, blog }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="order-2 mb-0 overflow-hidden h-[200px] min-[601px]:order-2 md:h-[400px]"
+          className="order-2 mb-0 overflow-hidden min-[601px]:order-2 "
           //  md:mt-16 md:mb-16
         >
           <Image
