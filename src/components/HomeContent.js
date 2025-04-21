@@ -107,7 +107,7 @@ export default function HomeContent({ home, testimonials, blog }) {
     // Send the form data to the server or handle it as needed
     console.log("Form submitted:", data);
 
-    const res = await fetch("/api/contact", {
+    const res = await fetch("/api/contactMe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, message }),
