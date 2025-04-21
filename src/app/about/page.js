@@ -15,6 +15,8 @@ export const metadata = {
   ],
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   // Fetch home content from supabase
   const aboutContent = await getContent("about", {
@@ -22,5 +24,5 @@ export default async function Page() {
     status: true,
   });
 
-  return <AboutContent abouContentt={aboutContent} />;
+  return <AboutContent abouContent={aboutContent} />;
 }
