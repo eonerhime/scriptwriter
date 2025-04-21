@@ -16,6 +16,7 @@ const btnStyle =
 export default function HomeContent({ home, testimonials, blog }) {
   const [index, setIndex] = useState(0);
   const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Destructure the home content to get the necessary data
   // This assumes home is an array with the first element containing the data
@@ -101,24 +102,37 @@ export default function HomeContent({ home, testimonials, blog }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setIsSubmitting(true); // Set submitting state to true
+
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const subject = formData.get("subject");
+    const message = formData.get("message");
+    // const subject = formData.get("subject");
 
     // Send the form data to the server or handle it as needed
-    console.log("Form submitted:", data);
 
-    const res = await fetch("/api/contactMe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, message }),
-    });
+    try {
+      const res = await fetch("/contactMe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
 
-    if (res.ok) {
-      toast.success("Message sent successfully! 📬");
-      e.target.reset(); // clear form
-    } else {
-      toast.error("Something went wrong. Please try again.");
+      if (res.ok) {
+        toast.success("Message sent!");
+        e.target.reset();
+      } else {
+        console.error("Error sending message:", res.statusText);
+        toast.error("Something went wrong!");
+      }
+    } catch (error) {
+      console.error("Submit error:", error);
+      toast.error("Submit failed.");
     }
+
+    setIsSubmitting(false); // Reset submitting state
   };
 
   return (
@@ -492,6 +506,12 @@ export default function HomeContent({ home, testimonials, blog }) {
             placeholder="Email"
             className="w-full p-3 bg-primary-700 rounded-md"
           />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            className="w-full p-3 bg-primary-700 rounded-md"
+          />
           <textarea
             name="message"
             placeholder="Message"
@@ -499,9 +519,14 @@ export default function HomeContent({ home, testimonials, blog }) {
           ></textarea>
           <button
             type="submit"
-            className="w-full px-6 py-3 font-bold bg-accent-950 uppercase rounded-md hover:bg-primary-700 transition cursor-pointer"
+            disabled={isSubmitting}
+            className={`w-full px-6 py-3 font-bold rounded-md transition cursor-pointer ${
+              isSubmitting
+                ? "bg-gray-500 cursor-not-allowed"
+                : "bg-accent-950 hover:bg-primary-700"
+            }`}
           >
-            Send Message
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       </section>

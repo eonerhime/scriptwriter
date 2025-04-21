@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import SubmitButton from "./SubmitButton";
+import toast from "react-hot-toast";
 
 const btnStyle =
   "px-4 py-4 border-2 border-primary-50 font-semibold uppercase hover:bg-accent-950 transition-all rounded-sm disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300";
 
 function SubmitEnquiryForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,9 +21,45 @@ function SubmitEnquiryForm() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  // Function to handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setIsSubmitting(true); // Set submitting state to true
+
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const subject = formData.get("subject");
+    const message = formData.get("message");
+
+    // Send the form data to the server or handle it as needed
+
+    try {
+      const res = await fetch("/contactMe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+
+      if (res.ok) {
+        toast.success("Message sent!");
+        e.target.reset();
+      } else {
+        console.error("Error sending message:", res.statusText);
+        toast.error("Something went wrong!");
+      }
+    } catch (error) {
+      console.error("Submit error:", error);
+      toast.error("Submit failed.");
+    }
+
+    setIsSubmitting(false); // Reset submitting state
+  };
+
   return (
     <form
-      action=""
+      onSubmit={handleSubmit}
       className="dark:border-2 dark:border-primary-900 w-full max-w-full py-6 px-6 text-lg flex flex-col gap-4 mx-auto rounded-lg"
     >
       {/* Name & Email Fields */}
@@ -71,12 +109,17 @@ function SubmitEnquiryForm() {
 
       {/* Submit Button */}
       <div className="flex justify-center min-[601px]:justify-end">
-        <SubmitButton
-          btnStyle={`${btnStyle} dark:text-primary-800 dark:bg-primary-50`}
-          pendingLabel="Sending..."
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={`px-4 py-4 border-2 border-primary-50 font-semibold uppercase hover:bg-accent-950 transition-all rounded-sm dark:text-primary-800 dark:bg-primary-50  ${
+            isSubmitting
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-accent-950 hover:bg-primary-700"
+          }`}
         >
-          Send Message
-        </SubmitButton>
+          {isSubmitting ? "Sending..." : "Send Message"}
+        </button>
       </div>
     </form>
   );
