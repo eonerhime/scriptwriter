@@ -5,6 +5,31 @@ import {
   getTestimonials,
 } from "@/lib/data-services";
 
+export const metadata = {
+  title: "Ifeoma Emo-Onerhime | Scriptwriter",
+  description:
+    "Professional scriptwriting portfolio and services by Ifeoma Emo-Onerhime",
+  keywords: [
+    "scriptwriter",
+    "Ifeoma Emo-Onerhime",
+    "screenwriting",
+    "script development",
+    "portfolio",
+  ],
+  openGraph: {
+    title: "Ifeoma Emo-Onerhime | Scriptwriter",
+    description:
+      "Professional scriptwriting portfolio and services by Ifeoma Emo-Onerhime",
+    url: "https://scriptwriter-theta.vercel.app",
+    images: [
+      {
+        url: "https://scriptwriter-theta.vercel.app/ieo-2.png",
+        alt: "Ifeoma Emo-Onerhime Scriptwriter",
+      },
+    ],
+  },
+};
+
 export default async function Page() {
   // Fetch home content from supabase
   const homeContent = await getContent("home", {
