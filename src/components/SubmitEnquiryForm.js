@@ -3,9 +3,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-const btnStyle =
-  "px-4 py-4 border-2 border-primary-50 font-semibold uppercase hover:bg-accent-950 transition-all rounded-sm disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300";
-
 function SubmitEnquiryForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -44,7 +41,7 @@ function SubmitEnquiryForm() {
 
       if (res.ok) {
         toast.success("Message sent!");
-        e.target.reset();
+        setFormData({ name: "", email: "", subject: "", message: "" }); // Reset form fields
       } else {
         console.error("Error sending message:", res.statusText);
         toast.error("Something went wrong!");
