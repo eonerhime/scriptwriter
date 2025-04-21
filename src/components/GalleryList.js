@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Gallery({ galleryImages }) {
@@ -15,24 +15,24 @@ export default function Gallery({ galleryImages }) {
     setSelectedImage(galleryImages[id - 1].image);
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setSelectedImage(null);
     setCurrentIndex(null);
-  };
+  }, []);
 
-  const showNext = () => {
+  const showNext = useCallback(() => {
     if (currentIndex !== null && currentIndex < galleryImages.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setSelectedImage(galleryImages[currentIndex + 1].image);
     }
-  };
+  }, []);
 
-  const showPrev = () => {
+  const showPrev = useCallback(() => {
     if (currentIndex !== null && currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
       setSelectedImage(galleryImages[currentIndex - 1].image);
     }
-  };
+  }, []);
 
   // Handle keyboard navigation
   useEffect(() => {
