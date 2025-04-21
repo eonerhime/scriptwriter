@@ -1,6 +1,6 @@
 "use server";
 
-import supabase, { validateSupabaseConnection } from "./supabase";
+import { getSupabaseClient } from "./supabase";
 
 /*
   // Set filter condition based on slug
@@ -16,7 +16,7 @@ import supabase, { validateSupabaseConnection } from "./supabase";
 // Handles fetch query for all tables in supabase
 export async function getContent(slug, filter) {
   // Ensure Supabase connection is valid
-  validateSupabaseConnection();
+  const supabase = getSupabaseClient();
 
   // Fetch data from the specified table (slug) with the provided filter
   // and order it based on the filter condition
@@ -40,7 +40,7 @@ export async function getContent(slug, filter) {
 // Handles fetch query for all tables in supabase
 export async function getTestimonials() {
   // Ensure Supabase connection is valid
-  validateSupabaseConnection();
+  const supabase = getSupabaseClient();
 
   const { data, error } = await supabase
     .from("testimonials")
@@ -58,7 +58,7 @@ export async function getTestimonials() {
 // Handles fetch query for latest blog in supabase
 export async function getLatestBlog() {
   // Ensure Supabase connection is valid
-  validateSupabaseConnection();
+  const supabase = getSupabaseClient();
 
   const { data, error } = await supabase
     .from("blog")
