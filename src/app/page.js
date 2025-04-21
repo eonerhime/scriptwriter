@@ -30,6 +30,8 @@ export const metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   // Fetch home content from supabase
   const homeContent = await getContent("home", {
