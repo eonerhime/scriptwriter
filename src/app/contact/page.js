@@ -1,7 +1,7 @@
 import ContactMe from "@/components/ContactMe";
 
-// Shows on About only
-const metadata = {
+// Shows on contact me only
+export const metadata = {
   title: "Contact Me | Ifeoma Emo-Onerhime",
 };
 
