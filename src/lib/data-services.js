@@ -1,7 +1,6 @@
 "use server";
 
-import supabase from "./supabase";
-
+import { getSupabaseClient } from "./getSupabaseClient.js";
 /*
   // Set filter condition based on slug
   // For "blog", sort by created_at in descending order
@@ -15,6 +14,8 @@ import supabase from "./supabase";
 
 // Handles fetch query for all tables in supabase
 export async function getContent(slug, filter) {
+  const supabase = getSupabaseClient();
+
   const { data, error } = await supabase
     .from(slug)
     .select("*")
@@ -34,6 +35,8 @@ export async function getContent(slug, filter) {
 
 // Handles fetch query for all tables in supabase
 export async function getTestimonials() {
+  const supabase = getSupabaseClient();
+
   const { data, error } = await supabase
     .from("testimonials")
     .select("*")
@@ -49,6 +52,8 @@ export async function getTestimonials() {
 
 // Handles fetch query for latest blog in supabase
 export async function getLatestBlog() {
+  const supabase = getSupabaseClient();
+
   const { data, error } = await supabase
     .from("blog")
     .select("*")
