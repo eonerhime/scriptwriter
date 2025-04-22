@@ -5,9 +5,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-function AboutContent({ abouContentt }) {
+function AboutContent({ aboutContent }) {
   // Destructure about page content
-  const { header, about, image, hobbies } = abouContentt[0];
+  const { header, about, image, hobbies } = aboutContent[0];
   return (
     <div className="grid grid-cols-1 gap-6 max-w-full py-8 mt-24 min-[601px]:grid-cols-[40%_60%] min-[601px]:gap-12 box-border">
       {/* Profile Image */}

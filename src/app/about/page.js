@@ -24,5 +24,5 @@ export default async function Page() {
     status: true,
   });
 
-  return <AboutContent abouContent={aboutContent} />;
+  return <AboutContent aboutContent={aboutContent} />;
 }
