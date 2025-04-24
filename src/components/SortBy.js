@@ -2,24 +2,28 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-function SortBy({ options = [] }) {
+function SortBy({ currentSort, options = [] }) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const sortBy = searchParams.get("sortBy") || "newest";
+  function handleChange(key, value) {
+    // If default is selected, do nothing
+    if (!key || !value) return;
 
-  function handleChange(e) {
     const params = new URLSearchParams(searchParams.toString());
 
-    params.set("sortBy", e.target.value || "");
+    params.set(key, value);
 
-    router.push(`?${params.toString()}`);
+    // Ensures page value is set to 1 if pagination and page details are passed in the searchParams
+    if (params.get("page")) params.set("page", "1");
+
+    router.push(`?${params.toString()}`, { scroll: false });
   }
 
   return (
     <Select
-      value={sortBy}
-      onChange={handleChange}
+      value={currentSort}
+      onChange={(e) => handleChange("sortBy", e.target.value)}
       options={options}
       type="white"
     />

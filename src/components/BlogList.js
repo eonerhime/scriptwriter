@@ -2,69 +2,49 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import FilterSortOperations from "./FilterSortOperations";
 import { useBlogs } from "@/hooks/useBlogs";
-import { useEffect, useState } from "react";
+import Spinner from "./Spinner";
 
-function BlogList() {
+function BlogList({ category, sortBy }) {
   const router = useRouter();
-  const searchParams = useSearchParams();
 
-  // State to track parameter changes
-  const [params, setParams] = useState({
-    category: searchParams.get("category"),
-    sortBy: searchParams.get("sortBy"),
-  });
+  // Parse "created_at-desc" into { value: "created_at", status: false }
+  let sortFilter = { value: "created_at", status: false };
 
-  // Fetch blogs whenever search params change
-  useEffect(() => {
-    const newCategory = searchParams.get("category");
-    const newSortBy = searchParams.get("sortBy");
+  if (sortBy.includes("-")) {
+    const [field, direction] = sortBy.split("-");
+    sortFilter = { value: field, status: direction === "asc" };
+  }
 
-    // Update params if they've changed
-    if (newCategory !== params.category || newSortBy !== params.sortBy) {
-      setParams({
-        category: newCategory,
-        sortBy: newSortBy,
-      });
-    }
-  }, [searchParams]);
-
-  // Map sortBy values to appropriate field and direction
-  let filter = { value: "created_at", status: false };
-
-  if (params.sortBy) {
-    // Handle different sort options
-    switch (params.sortBy) {
-      case "a-z":
-        filter = { value: "title", status: true }; // A-Z (ascending)
-        break;
-      case "z-a":
-        filter = { value: "title", status: false }; // Z-A (descending)
-        break;
-      case "newest":
-        filter = { value: "created_at", status: false }; // Newest first (descending)
-        break;
-      case "oldest":
-        filter = { value: "created_at", status: true }; // Oldest first (ascending)
-        break;
-    }
+  switch (sortBy) {
+    case "title-asc":
+      sortFilter = [{ value: sortBy, status: true }];
+      break;
+    case "title-desc":
+      sortFilter = [{ value: sortBy, status: false }];
+      break;
+    case "created_at-asc":
+      sortFilter = [{ value: sortBy, status: true }];
+      break;
+    case "created_at-desc":
+    default:
+      sortFilter = [{ value: sortBy, status: false }];
+      break;
   }
 
   // Set up category filter if present
-  const filterBy =
-    params.category && params.category !== "all"
-      ? { category: params.category }
-      : {};
+  // Filtering logic
 
-  // Use custom hook to fetch blogs with the correct parameter structure
+  const filterBy = category == "all" ? {} : { category };
+
+  // Fetch data
   const {
     blogs: blogList,
     loading,
     error,
-    refetch,
-  } = useBlogs("blog", filter, filterBy, []);
+  } = useBlogs("blog", sortFilter, filterBy);
 
   // Function to handle blog click and store in local storage
   const handleBlogClick = (blog) => {
@@ -74,12 +54,11 @@ function BlogList() {
 
   return (
     <motion.div
-      className="mt-36 mb-12 "
+      className="mt-36 mb-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Rest of your component stays the same */}
       <motion.h2
         className="uppercase font-bold text-2xl mb-2"
         initial={{ opacity: 0, y: 20 }}
@@ -102,13 +81,11 @@ function BlogList() {
         <FilterSortOperations />
       </div>
 
-      {/* Loading and Error States */}
-      {loading && <p className="text-center py-8">Loading blogs...</p>}
+      {loading && <Spinner />}
       {error && (
         <p className="text-center py-8 text-red-500">Error: {error.message}</p>
       )}
 
-      {/* Blog Posts Grid with Staggered Animation */}
       {!loading && !error && (
         <motion.div
           className="grid grid-cols-[1fr] auto-rows-auto justify-between gap-12 text-center w-full h-full mt-6 min-[601px]:grid-cols-[1fr_1fr] min-[840px]:grid-cols-[1fr_1fr_1fr]"

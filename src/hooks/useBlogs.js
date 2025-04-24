@@ -1,35 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { getContent } from "@/lib/data-services";
+import { useEffect, useState } from "react";
 
-export function useBlogs(slug, filter, filterBy, sortBy = []) {
+export function useBlogs(slug, sortFilter = [], filterBy = {}) {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Create a serialized key from all parameters to detect changes
-  const paramsKey = `${slug}-${JSON.stringify(filter)}-${JSON.stringify(filterBy)}-${JSON.stringify(sortBy)}`;
+  // console.log("SORT FILTER:", sortFilter);
+  // console.log("FILTER BY:", filterBy);
 
+  const { value, status } = sortFilter.at(0);
+  const filter = value.split("-").at(0);
+  const sortBy = [{ filter, status }];
+
+  console.log("SORT BY:", sortBy);
+  // Memoize the key to prevent unnecessary re-fetches
   useEffect(() => {
-    // Track whether the component is mounted
     let isMounted = true;
 
-    async function getData() {
+    async function fetchData() {
       setLoading(true);
       setError("");
 
       try {
-        const result = await getContent(slug, filter, filterBy, sortBy);
-
-        // Only update state if component is still mounted
+        const result = await getContent(slug, sortBy, filterBy);
         if (isMounted) {
           setBlogs(result);
         }
       } catch (err) {
         if (isMounted) {
           setError("Something went wrong fetching blogs.");
-          console.error(err);
         }
       } finally {
         if (isMounted) {
@@ -38,13 +40,12 @@ export function useBlogs(slug, filter, filterBy, sortBy = []) {
       }
     }
 
-    getData();
+    fetchData();
 
-    // Cleanup function
     return () => {
       isMounted = false;
     };
-  }, [paramsKey]); // Only depend on the serialized key
+  }, [slug, JSON.stringify(sortFilter), JSON.stringify(filterBy)]);
 
   return { blogs, loading, error };
 }

@@ -14,40 +14,31 @@ import { getSupabaseClient } from "./supabase";
 */
 
 // Handles fetch query for all tables in supabase
-export async function getContent(
-  slug,
-  filter = {},
-  filterBy = {},
-  sortBy = []
-) {
+export async function getContent(slug, sortBy = [], filterBy = {}) {
   const supabase = getSupabaseClient();
 
   let query = supabase.from(slug).select("*");
 
-  // Apply dynamic filtering
-  if (filterBy)
-    Object.entries(filterBy).forEach(([category, value]) => {
-      if (value !== undefined && value !== null && value !== "") {
-        query = query.eq(category, value);
+  // Apply filters dynamically
+  Object.entries(filterBy).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== "") {
+      query = query.eq(key, value);
+    }
+  });
+
+  // Apply modern sortBy array first (can be multi-level)
+  if (Array.isArray(sortBy) && sortBy.length > 0) {
+    sortBy.forEach(({ filter, status }) => {
+      if (filter) {
+        query = query.order(filter, { ascending: status });
       }
     });
-
-  // Apply dynamic sorting: supports multiple sort fields
-  if (Array.isArray(sortBy) && sortBy.length > 0) {
-    sortBy.forEach(({ value, status }) => {
-      if (value) query = query.order(value, { status });
-    });
-  } else if (filter?.value) {
-    // fallback to legacy filter-style sorting
-    query = query.order(filter.value, { ascending: filter.status ?? true });
   }
 
   const { data, error } = await query;
 
-  console.log("DATA:", data);
-
   if (error) {
-    console.error(error);
+    console.error("Supabase error:", error);
     throw new Error(
       `${slug.charAt(0).toUpperCase() + slug.slice(1)} page content could not be loaded`
     );
@@ -62,7 +53,10 @@ export async function getBlogCategory() {
 
   // Fetch data from the specified table (slug) with the provided filter
   // and order it based on the filter condition
-  const { data, error } = await supabase.from("blog").select("category");
+  const { data, error } = await supabase
+    .from("blog")
+    .select("category")
+    .order("category", { ascending: true });
 
   if (error) {
     console.error(error);
