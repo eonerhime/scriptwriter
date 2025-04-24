@@ -33,11 +33,10 @@ export const metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
+  const sortBy = { value: "id", status: true };
+
   // Fetch home content from supabase
-  const homeContent = await getContent("home", {
-    value: "id",
-    status: true,
-  });
+  const homeContent = await getContent("home", sortBy);
 
   // Fetch testimonials content from supabase
   const testimonialsContent = await getTestimonials("testimonials");

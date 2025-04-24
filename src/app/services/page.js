@@ -17,11 +17,10 @@ export const metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
+  const sortBy = { value: "id", status: true };
+
   // Fetch home content from supabase
-  const serviceContent = await getContent("services", {
-    value: "id",
-    status: true,
-  });
+  const serviceContent = await getContent("services", sortBy);
 
   return <ServiceList services={serviceContent} />;
 }

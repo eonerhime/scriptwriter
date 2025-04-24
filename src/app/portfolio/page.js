@@ -18,11 +18,10 @@ export const metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
+  const sortBy = { value: "id", status: true };
+
   // Fetch portfolio content from supabase
-  const portfolioContent = await getContent("portfolio", {
-    value: "id",
-    status: true,
-  });
+  const portfolioContent = await getContent("portfolio", sortBy);
 
   return <PortfolioList portfolio={portfolioContent} />;
 }

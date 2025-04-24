@@ -18,11 +18,10 @@ export const metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
+  const sortBy = { value: "id", status: true };
+
   // Fetch home content from supabase
-  const aboutContent = await getContent("about", {
-    value: "id",
-    status: true,
-  });
+  const aboutContent = await getContent("about", sortBy);
 
   return <AboutContent aboutContent={aboutContent} />;
 }

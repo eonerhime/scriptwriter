@@ -1,8 +1,9 @@
-import BlogList from "@/components/BlogList";
-import { getContent } from "@/lib/data-services";
+"use client";
 
-// Shows on Blog only
-export const metadata = {
+import BlogList from "@/components/BlogList";
+import { useSearchParams } from "next/navigation";
+
+const metadata = {
   title: "Blog | Ifeoma Emo-Onerhime",
   description: "Published blogs by Ifeoma Emo-Onerhime",
   keywords: [
@@ -16,12 +17,11 @@ export const metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default async function Page() {
-  // const blogList = await getContent("blog", {
-  //   value: "created_at",
-  //   status: false,
-  // });
+export default function Page() {
+  const searchParams = useSearchParams();
 
-  // return <BlogList blogList={blogList} />;
-  return <BlogList />;
+  const category = searchParams.get("category") || "all";
+  const sortBy = searchParams.get("sortBy") || "id-asc";
+
+  return <BlogList category={category} sortBy={sortBy} />;
 }

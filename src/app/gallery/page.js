@@ -17,11 +17,9 @@ export const metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
+  const sortBy = { value: "id", status: true };
   // Fetch home content from supabase
-  const galleryImages = await getContent("gallery", {
-    value: "id",
-    status: true,
-  });
+  const galleryImages = await getContent("gallery", sortBy);
 
   return <GalleryList galleryImages={galleryImages} />;
 }
