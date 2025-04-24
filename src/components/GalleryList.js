@@ -45,7 +45,15 @@ export default function Gallery({ galleryImages }) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedImage, currentIndex, showNext, showPrev, closeModal]);
+  }, [
+    selectedImage,
+    currentIndex,
+    showNext,
+    showPrev,
+    closeModal,
+    currentIndex,
+    galleryImages,
+  ]);
 
   // Pagination Logic
   const totalPages = Math.ceil(galleryImages.length / imagesPerPage);

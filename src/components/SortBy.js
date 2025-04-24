@@ -40,7 +40,7 @@ function Select({ options, value, onChange, type = "default" }) {
     <select
       value={value}
       onChange={onChange}
-      className={`text-lg px-2 py-1 border-1 border-primary-700 rounded-sm shadow-sm bg-primary-700 ${textColor}`}
+      className={`text-lg px-2 py-1 border-1 border-primary-700 rounded-sm shadow-sm bg-primary-950 ${textColor}`}
     >
       {options.map((option) => (
         <option

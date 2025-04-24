@@ -35,15 +35,15 @@ function Filter({ currentCategory, categories = [] }) {
 export default Filter;
 
 // Select element declaration
-function Select({ defaultValue, onChange, categories, type = "default" }) {
+function Select({ value, onChange, categories, type = "default" }) {
   // Compute value to avoid hydration issues
   const textColor = type === "white" ? "text-gray-300" : "text-gray-500";
 
   return (
     <select
-      value={defaultValue}
+      value={value}
       onChange={onChange}
-      className={`text-lg px-2 py-1 border-1 border-primary-700 rounded-sm shadow-sm bg-primary-700 ${textColor}`}
+      className={`text-lg px-2 py-1 border-1 border-primary-700 rounded-sm shadow-sm bg-primary-950 ${textColor}`}
     >
       <option value="all" className="bg-primary-700">
         Show all Categories

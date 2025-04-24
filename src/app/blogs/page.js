@@ -1,9 +1,6 @@
 "use client";
 
 import BlogList from "@/components/BlogList";
-import Spinner from "@/components/Spinner";
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 
 const metadata = {
   title: "Blog | Ifeoma Emo-Onerhime",
@@ -20,14 +17,5 @@ const metadata = {
 export const dynamic = "force-dynamic";
 
 export default function Page() {
-  const searchParams = useSearchParams();
-
-  const category = searchParams.get("category") || "all";
-  const sortBy = searchParams.get("sortBy") || "id-asc";
-
-  return (
-    <Suspense fallback={<Spinner />}>
-      <BlogList category={category} sortBy={sortBy} />
-    </Suspense>
-  );
+  return <BlogList />;
 }

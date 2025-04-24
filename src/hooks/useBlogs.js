@@ -15,7 +15,6 @@ export function useBlogs(slug, sortFilter = [], filterBy = {}) {
   const filter = value.split("-").at(0);
   const sortBy = [{ filter, status }];
 
-  console.log("SORT BY:", sortBy);
   // Memoize the key to prevent unnecessary re-fetches
   useEffect(() => {
     let isMounted = true;
