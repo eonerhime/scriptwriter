@@ -1,12 +1,11 @@
 "use client";
 
+import { useBlogs } from "@/hooks/useBlogs";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import FilterSortOperations from "./FilterSortOperations";
-import { useBlogs } from "@/hooks/useBlogs";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import FilterSortOperations from "./FilterSortOperations";
 import Spinner from "./Spinner";
 
 function BlogList() {

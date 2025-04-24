@@ -1,5 +1,3 @@
-"use client";
-
 import BlogList from "@/components/BlogList";
 
 const metadata = {
