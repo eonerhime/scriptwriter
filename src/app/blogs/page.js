@@ -17,10 +17,11 @@ export const metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-  const blogContent = await getContent("blog", {
-    value: "created_at",
-    status: false,
-  });
+  // const blogList = await getContent("blog", {
+  //   value: "created_at",
+  //   status: false,
+  // });
 
-  return <BlogList blogList={blogContent} />;
+  // return <BlogList blogList={blogList} />;
+  return <BlogList />;
 }
