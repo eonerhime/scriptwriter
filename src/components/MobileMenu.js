@@ -25,7 +25,7 @@ export default function MobileMenu() {
 
       {/* Mobile Menu */}
       <nav
-        className={`absolute top-16 left-0 w-11/12 text-primary-50 z-10 font-semibold  transparent-bg-primary-500 text-primary-50 p-6 space-y-4 shadow-md transition-transform ${
+        className={`absolute top-16 left-0 w-11/12 text-primary-50 z-10 font-semibold transparent-bg-primary-500 text-primary-50 p-6 space-y-4 shadow-none transition-transform ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         } md:hidden bg-opacity-25`}
       >
