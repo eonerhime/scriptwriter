@@ -88,7 +88,7 @@ export default function MobileMenu() {
           </li>
           <li>
             <Link
-              href="/blog"
+              href="/blogs"
               onClick={() => setMenuOpen(false)}
               className="hover:text-accent-700 group  transition-all duration-300 ease-in-out"
             >
