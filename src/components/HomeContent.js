@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaQuoteLeft, FaQuoteRight, FaStar } from "react-icons/fa";
 import Button from "./Button";
 import { useRouter } from "next/navigation";
@@ -17,6 +17,7 @@ export default function HomeContent({ home, testimonials, blog }) {
   const [index, setIndex] = useState(0);
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const containerRef = useRef(null);
 
   // Destructure the home content to get the necessary data
   // This assumes home is an array with the first element containing the data
@@ -68,12 +69,44 @@ export default function HomeContent({ home, testimonials, blog }) {
 
   // useEffect for auto-scrolling testimonials
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000); // Auto-scroll every 5 seconds
+    let interval = null;
+    let isPaused = false;
 
-    return () => clearInterval(interval);
+    const startInterval = () => {
+      interval = setInterval(() => {
+        if (!isPaused) {
+          setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+        }
+      }, 20000);
+    };
+
+    startInterval();
+
+    const handleMouseEnter = () => {
+      isPaused = true;
+    };
+
+    const handleMouseLeave = () => {
+      isPaused = false;
+    };
+
+    const containerElement = containerRef.current;
+    if (containerElement) {
+      containerElement.addEventListener("mouseenter", handleMouseEnter);
+      containerElement.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      clearInterval(interval);
+      if (containerElement) {
+        containerElement.removeEventListener("mouseenter", handleMouseEnter);
+        containerElement.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
   }, [testimonials.length]);
+
+  // Then in your JSX:
+  // <div ref={containerRef}>...</div>
 
   // Function to view next and previous testimonials
   // This function is called when the user clicks the "Next" or "Prev" buttons
@@ -359,7 +392,7 @@ export default function HomeContent({ home, testimonials, blog }) {
                 className="mt-6 origin-center"
               >
                 <Button btnStyle={`${btnStyle} mt-4`}>
-                  <Link href="/services">
+                  <Link href="/portfolio">
                     <span className="underline">View My Portfolio</span> 💼
                   </Link>
                 </Button>

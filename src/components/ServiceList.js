@@ -73,9 +73,10 @@ function FlipCard({ service, icon }) {
 
   return (
     <div
-      className="relative w-4/5 max-w-xs h-64 mx-auto perspective-1000 cursor-pointer mb-4 border-2 border-accent-950 hover-border-primary-500 rounded-lg"
+      className="relative w-4/5 max-w-xs h-80 mx-auto perspective-1000 cursor-pointer mb-4 border-2 border-accent-950 hover-border-primary-500 rounded-lg"
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
+      onClick={() => setFlipped((value) => !value)}
     >
       <motion.div
         className="relative w-full h-full rounded-lg transform-style-3d"

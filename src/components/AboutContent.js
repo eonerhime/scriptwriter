@@ -65,9 +65,9 @@ function AboutContent({ aboutContent }) {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            📌{" "}
-            {hobbies.split(", ").map((hobby, index) => {
-              if (index === 0 || index === 1) {
+            {/* 📌{" "} */}
+            {hobbies.split(", ").map((hobby, index, array) => {
+              if (index < array.length - 1) {
                 return `${hobby} | `;
               } else {
                 return hobby;
